@@ -42,6 +42,178 @@
    "best_scalar": "min clearance",
    "lead_over_best_scalar": 0.02648888723021825,
    "lead_over_verdict": 0.13656232340331131
+  },
+  "NHTSA 813219 all, MAIS2+": {
+   "mean_H": 0.012401744703680584,
+   "apfd_field_tier": 0.8586067721859828,
+   "rho_field_tier": 0.7126910734587492,
+   "apfd_scalars": {
+    "min TTC": 0.8011986960725241,
+    "min clearance": 0.8329727663701206,
+    "realized impact speed": 0.7286179205145606
+   },
+   "apfd_binary": 0.7227615670621564,
+   "best_scalar": "min clearance",
+   "lead_over_best_scalar": 0.02563400581586217,
+   "lead_over_verdict": 0.13584520512382636
+  },
+  "NHTSA 813219 all, MAIS3+": {
+   "mean_H": 0.004160183644303766,
+   "apfd_field_tier": 0.8253014232925521,
+   "rho_field_tier": 0.7016714037838975,
+   "apfd_scalars": {
+    "min TTC": 0.7933347261281948,
+    "min clearance": 0.7909169964808014,
+    "realized impact speed": 0.699328458440379
+   },
+   "apfd_binary": 0.6932459591424072,
+   "best_scalar": "min TTC",
+   "lead_over_best_scalar": 0.031966697164357294,
+   "lead_over_verdict": 0.1320554641501449
+  },
+  "NHTSA 813219 all, fatality": {
+   "mean_H": 0.0008530713820895,
+   "apfd_field_tier": 0.7634051411611139,
+   "rho_field_tier": 0.7043739490550308,
+   "apfd_scalars": {
+    "min TTC": 0.7652279221946274,
+    "min clearance": 0.6896462931498631,
+    "realized impact speed": 0.6090957065191426
+   },
+   "apfd_binary": 0.6052043546185332,
+   "best_scalar": "min TTC",
+   "lead_over_best_scalar": -0.0018227810335135208,
+   "lead_over_verdict": 0.15820078654258074
+  },
+  "NHTSA 813219 rear_end, MAIS2+": {
+   "mean_H": 0.005535732656663036,
+   "apfd_field_tier": 0.8369915900662273,
+   "rho_field_tier": 0.7047538908532204,
+   "apfd_scalars": {
+    "min TTC": 0.7961946600025525,
+    "min clearance": 0.8077177333576783,
+    "realized impact speed": 0.7107498700821338
+   },
+   "apfd_binary": 0.7048330522851789,
+   "best_scalar": "min clearance",
+   "lead_over_best_scalar": 0.029273856708548984,
+   "lead_over_verdict": 0.13215853778104836
+  },
+  "NHTSA 813219 rear_end, MAIS3+": {
+   "mean_H": 0.0025273428356979402,
+   "apfd_field_tier": 0.7953860644633776,
+   "rho_field_tier": 0.699025834195422,
+   "apfd_scalars": {
+    "min TTC": 0.7825181950678568,
+    "min clearance": 0.7507428883858707,
+    "realized impact speed": 0.6702606745126637
+   },
+   "apfd_binary": 0.6645230491101867,
+   "best_scalar": "min TTC",
+   "lead_over_best_scalar": 0.012867869395520759,
+   "lead_over_verdict": 0.1308630153531909
+  },
+  "NHTSA 813219 rear_end, fatality": {
+   "mean_H": 0.0005834291666003564,
+   "apfd_field_tier": 0.6831362128128663,
+   "rho_field_tier": 0.7000703896560599,
+   "apfd_scalars": {
+    "min TTC": 0.7318720851200772,
+    "min clearance": 0.5715273246035132,
+    "realized impact speed": 0.5087384427123905
+   },
+   "apfd_binary": 0.5071228784654136,
+   "best_scalar": "min TTC",
+   "lead_over_best_scalar": -0.04873587230721088,
+   "lead_over_verdict": 0.1760133343474527
+  },
+  "NHTSA 813219 frontal, MAIS2+": {
+   "mean_H": 0.01287784010335589,
+   "apfd_field_tier": 0.857554252064571,
+   "rho_field_tier": 0.7120791153311729,
+   "apfd_scalars": {
+    "min TTC": 0.8005768718444852,
+    "min clearance": 0.8337883067866741,
+    "realized impact speed": 0.7288958849127364
+   },
+   "apfd_binary": 0.7231970282942347,
+   "best_scalar": "min clearance",
+   "lead_over_best_scalar": 0.023765945277896883,
+   "lead_over_verdict": 0.13435722377033632
+  },
+  "NHTSA 813219 frontal, MAIS3+": {
+   "mean_H": 0.003940061432743081,
+   "apfd_field_tier": 0.8230771898796961,
+   "rho_field_tier": 0.7022676972352598,
+   "apfd_scalars": {
+    "min TTC": 0.7923118520948431,
+    "min clearance": 0.7881315783397186,
+    "realized impact speed": 0.6971324639434906
+   },
+   "apfd_binary": 0.6911285437443627,
+   "best_scalar": "min TTC",
+   "lead_over_best_scalar": 0.03076533778485302,
+   "lead_over_verdict": 0.13194864613533341
+  },
+  "NHTSA 813219 frontal, fatality": {
+   "mean_H": 0.0007508093804370204,
+   "apfd_field_tier": 0.7651579217911341,
+   "rho_field_tier": 0.7080451595707101,
+   "apfd_scalars": {
+    "min TTC": 0.7657673462984517,
+    "min clearance": 0.6897262120172437,
+    "realized impact speed": 0.6066202441326524
+   },
+   "apfd_binary": 0.60283519754307,
+   "best_scalar": "min TTC",
+   "lead_over_best_scalar": -0.0006094245073176019,
+   "lead_over_verdict": 0.16232272424806404
+  },
+  "Kusano-Gabler MAIS2+, dv=s/2": {
+   "mean_H": 0.0011846737651454006,
+   "apfd_field_tier": 0.8428757351297799,
+   "rho_field_tier": 0.7100850669034622,
+   "apfd_scalars": {
+    "min TTC": 0.7891527512435638,
+    "min clearance": 0.8122530226260083,
+    "realized impact speed": 0.7068052114903675
+   },
+   "apfd_binary": 0.702774445570102,
+   "best_scalar": "min clearance",
+   "lead_over_best_scalar": 0.030622712503771576,
+   "lead_over_verdict": 0.14010128955967782
+  },
+  "NHTSA 813219 all, MAIS3+, dv=s/2": {
+   "mean_H": 0.0005211895534562893,
+   "apfd_field_tier": 0.8397784309559464,
+   "rho_field_tier": 0.7080601573597997,
+   "apfd_scalars": {
+    "min TTC": 0.7884598728667825,
+    "min clearance": 0.8070735448242656,
+    "realized impact speed": 0.7020400485911052
+   },
+   "apfd_binary": 0.6980114999177826,
+   "best_scalar": "min clearance",
+   "lead_over_best_scalar": 0.032704886131680766,
+   "lead_over_verdict": 0.14176693103816385
+  },
+  "Joksch fourth power": {
+   "mean_H": 0.0012544596007306832,
+   "apfd_field_tier": 0.8151199542042594,
+   "rho_field_tier": 0.6990826626319181,
+   "apfd_scalars": {
+    "min TTC": 0.7883678669143175,
+    "min clearance": 0.7680727845189168,
+    "realized impact speed": 0.6751358510937367
+   },
+   "apfd_binary": 0.6694756856866269,
+   "best_scalar": "min TTC",
+   "lead_over_best_scalar": 0.02675208728994194,
+   "lead_over_verdict": 0.14564426851763257
   }
- }
+ },
+ "lead_range": [
+  -0.04873587230721088,
+  0.032704886131680766
+ ]
 }

@@ -183,8 +183,10 @@ Every script above was run while assembling this package (scikit-learn
   width, 0.056 / 0.025); the CriMe ranking (0.646 / 0.666, non-collision
   0.484 / 0.527); the regulatory fractions; the axiom battery (219 / 0).
   Retraining the field tier reproduces the stored out-of-fold scores to
-  floating-point precision; rebuilding `data/` from the raw traces
-  reproduces every derived file to 1 ulp.
+  floating-point precision on both subjects (all ten repeats, maximum
+  difference 4e-16; `results/rq1/<subject>_field_tier_oof_rerun.npz`);
+  rebuilding `data/` from the raw traces reproduces every derived file
+  to 1 ulp.
 - **Small deviations, documented rather than tuned**:
   - Table 1, "Best of 35 CriMe measures", TransFuser APFD_H: the paper
     prints .884 [.84, .92]; recomputing from the shipped measure values
@@ -214,10 +216,13 @@ Every script above was run while assembling this package (scikit-learn
     field tier the lead over minimum clearance on openpilot is +0.044 on
     the shipped curve by Table 1's own numbers, and the re-distillation
     sweep (`rq3_injury_curves.py --sweep`, reduced to 3 repeats and 3
-    seeds) gives leads of a few hundredths per curve; its lead over the
-    binary verdict is +0.14. The range the sweep produces is in
-    `results/rq3/injury_sweep_<subject>.json` (`lead_range`); the
-    ordinal conclusion (r_s ≥ 0.998 / 0.922, few pairs reorder) stands.
+    seeds) gives leads over the best telemetry scalar between −0.049 and
+    +0.033 on openpilot and between +0.025 and +0.033 on TransFuser across
+    the fifteen curves (shipped + fourteen), while its lead over the
+    binary verdict stays near +0.14 on openpilot. The per-curve
+    values are in `results/rq3/injury_sweep_<subject>.json`; the ordinal
+    conclusion (r_s ≥ 0.998 / 0.922 with the shipped curve, few pairs
+    reorder) stands, the margin sentence does not.
   - Table 3, TransFuser median harm at α = 1: the paper prints .0005, the
     stored label file gives .00044. The openpilot oracle-level minimum is
     0.705, printed as 0.71.

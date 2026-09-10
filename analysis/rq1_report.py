@@ -21,7 +21,7 @@ Reproduces, per subject:
 
 Two bootstrap protocols are used, exactly as the paper's drivers did:
   A. (field-tier row, paired margins) rng seed 7, resample scenarios and one
-     CV repeat per sample -- experiments/v4_optimization/the original report driver;
+     CV repeat per sample -- the original report driver;
   B. (baseline rows, mini-measurement rows, M=100 row) rng seed 20260815,
      the same scenario resamples for every row (the paper's bootstrap convention).
 
