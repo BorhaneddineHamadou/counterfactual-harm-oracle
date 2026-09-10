@@ -1,0 +1,122 @@
+{
+ "openpilot": {
+  "nominal_runs": 750,
+  "reference_replays": 15000,
+  "replays_per_reference_min": 100,
+  "mean_label_mc_se": 0.0010807669457608634,
+  "mean_H": 0.007893888592643505,
+  "median_H": 0.0,
+  "nonzero_references": 28,
+  "top15_harm_share": 0.8824688653491948,
+  "top1_harm_share": 0.11280045022005131,
+  "run0_contact_rate_by_template": {
+   "crossing_traffic": 0.0,
+   "cut_in": 0.26666666666666666,
+   "lead_decel": 0.06666666666666667,
+   "lead_stopped": 0.06666666666666667,
+   "oncoming_drift": 0.03333333333333333
+  },
+  "all_runs_contact_rate_by_template": {
+   "crossing_traffic": 0.0,
+   "cut_in": 0.26666666666666666,
+   "lead_decel": 0.09333333333333334,
+   "lead_stopped": 0.07333333333333333,
+   "oncoming_drift": 0.02
+  },
+  "harm_share_by_template": {
+   "crossing_traffic": 0.0,
+   "cut_in": 0.2459141930926053,
+   "lead_decel": 0.26330801095819145,
+   "lead_stopped": 0.3951534787531132,
+   "oncoming_drift": 0.09562431719609006
+  },
+  "run0_collisions": 13,
+  "scenarios_crashing_again": 23,
+  "held_out_runs": 600,
+  "held_out_runs_in_paper": 599,
+  "gpu_hours_reference_campaign": 800,
+  "examples": {
+   "figure1_sid40": {
+    "sid": 40,
+    "template": "lead_stopped",
+    "ttc_min_s": 0.3396950531898724,
+    "min_clearance_m": 4.371761347604156,
+    "speed_at_crit_kmh": 46.34643486028553,
+    "run0_contact": false,
+    "replays": 100,
+    "replays_crashing": 37,
+    "median_impact_speed_kmh": 46.79612704394326,
+    "mean_iota_of_crashes": 0.1991058517490937,
+    "H": 0.07366916514716466,
+    "share_of_suite_harm": 0.06221620205097113
+   },
+   "abstract_sid55": {
+    "sid": 55,
+    "template": "lead_stopped",
+    "ttc_min_s": 2.2432819386928218,
+    "min_clearance_m": 29.110170411591554,
+    "speed_at_crit_kmh": 46.73685695071675,
+    "run0_contact": false,
+    "replays": 100,
+    "replays_crashing": 23,
+    "median_impact_speed_kmh": 44.16071211166775,
+    "mean_iota_of_crashes": 0.1547326753973038,
+    "H": 0.03558851534137987,
+    "share_of_suite_harm": 0.03005575340442953
+   },
+   "abstract_sid16": {
+    "sid": 16,
+    "template": "lead_decel",
+    "ttc_min_s": 0.4156916580715863,
+    "min_clearance_m": 5.420302150764247,
+    "speed_at_crit_kmh": 46.93039118067578,
+    "run0_contact": false,
+    "replays": 100,
+    "replays_crashing": 0,
+    "median_impact_speed_kmh": 0.0,
+    "mean_iota_of_crashes": 0.0,
+    "H": 0.0,
+    "share_of_suite_harm": 0.0
+   }
+  }
+ },
+ "transfuser": {
+  "nominal_runs": 750,
+  "reference_replays": 15000,
+  "replays_per_reference_min": 100,
+  "mean_label_mc_se": 0.0003482736632664303,
+  "mean_H": 0.005716955861627915,
+  "median_H": 0.0005416009135353315,
+  "nonzero_references": 104,
+  "top15_harm_share": 0.8663762121047884,
+  "top1_harm_share": 0.1184276121827923,
+  "run0_contact_rate_by_template": {
+   "crossing_traffic": 0.03333333333333333,
+   "cut_in": 0.16666666666666666,
+   "lead_decel": 0.0,
+   "lead_stopped": 0.0,
+   "oncoming_drift": 0.5
+  },
+  "all_runs_contact_rate_by_template": {
+   "crossing_traffic": 0.04666666666666667,
+   "cut_in": 0.2,
+   "lead_decel": 0.0,
+   "lead_stopped": 0.0,
+   "oncoming_drift": 0.52
+  },
+  "harm_share_by_template": {
+   "crossing_traffic": 0.02483909941134946,
+   "cut_in": 0.05159927907656842,
+   "lead_decel": 0.011884017935633203,
+   "lead_stopped": 0.022745997527399035,
+   "oncoming_drift": 0.8889316060490501
+  },
+  "run0_collisions": 21,
+  "scenarios_crashing_again": 31,
+  "held_out_runs": 600,
+  "held_out_runs_in_paper": 600,
+  "gpu_hours_reference_campaign": 1400,
+  "oncoming_replay_contacts": 1270,
+  "oncoming_replay_contacts_ego_moving": 0.9968503937007874
+ }
+}

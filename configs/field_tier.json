@@ -1,0 +1,19 @@
+{
+  "_comment": "The field tier (Tier 2) as shipped; implementation in proxima/field_tier.py, drivers in analysis/.",
+  "features": {"single_trace": 71, "checkpoint_trajectory": 71, "total": 142,
+               "modules": ["proxima/features_expanded.py (41)", "proxima/features_extra.py (30)", "proxima/features_traj.py (71)"]},
+  "corpus": {"rows": "k=5 nominal executions + M=100 replays of every training scenario, each labelled with the scenario's Tier-1 harm",
+             "weight_nominal": 0.2, "weight_replay": 0.02, "replay_phys_H": "stubbed to 0"},
+  "readouts": {"model": "sklearn HistGradientBoosting", "max_iter": 400, "learning_rate": 0.05,
+               "classifier": "H > 0", "log_regressor": "log10(H + 1e-4)", "raw_regressor": "H",
+               "seeds_per_readout": {"openpilot": 6, "transfuser": 3}},
+  "ordering": {"tie_rule": "score = 0 if p < tau", "tau": 0.05,
+               "survivors": "1 + rank(p) + rank(log) + rank(raw) on openpilot; 1 + rank(log) + rank(raw) on TransFuser (whose driver selects tau per fold on its training scenarios, max inner-OOF rank correlation)",
+               "tau_ablation": "fold-internal 1-SE selection over {0.05,...,0.85} (Sec. 7): 0.714 +- 0.048 vs declared 0.729 +- 0.034"},
+  "magnitude": {"readout": "10**log_regressor - 1e-4", "conformal": "split conformal, calibration = 25% of the training scenarios, coverage 0.90, seeds 3"},
+  "escalation": {"score": "p (1 - p)", "budget": [0.10, 0.15], "replays_per_escalated_run": 3,
+                 "clean_score": 0.5, "harm_score": "3 + mean injury of the b replays"},
+  "protocol": {"cv": "10 repeats x 5 folds, scenario level (folds = np.array_split(default_rng(rep).permutation(150), 5))",
+               "inner_cv_for_tau": "4 groups of the training fold",
+               "bootstrap": "4000 scenario resamples, each also drawing one CV repeat"}
+}

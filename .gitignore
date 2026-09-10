@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+logs/
+# raw simulation traces are distributed separately (see docs/TRACES.md)
+data/*/traces/
+data/*/calibration/
+results/**/*.log
+results/**/_scratch/
+results/_scratch/

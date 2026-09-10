@@ -1,0 +1,46 @@
+{
+  "_comment": "Declared parameters of the measure and of the two reference campaigns, exactly as run (paper Sec. 3.4 and Sec. 4.2).",
+  "kernel": {
+    "latency": {"distribution": "Gaussian, zero mean, rectified at zero and bounded (dlat = clip(N(0, sigma), -bound, bound); negative draws act as zero delay in both adapters)",
+                "sigma_s": 0.10, "bound_s": 0.25},
+    "friction": {"distribution": "uniform multiplicative scale on achievable deceleration (brake-command gain in both adapters)",
+                 "lo": 0.80, "hi": 1.05},
+    "actor_noise": {"distribution": "Ornstein-Uhlenbeck acceleration noise on the threat actor",
+                    "sigma_long_ms2": 0.50, "sigma_lat_ms": 0.12, "theta": 1.0},
+    "alpha": 1.0,
+    "rescaling": "Kernel.scaled(alpha) multiplies every spread by alpha with nominal centres fixed; RQ3 uses alpha in {0.5, 2}",
+    "implementation": "proxima/kernel.py"
+  },
+  "severity_curve": {
+    "form": "logit iota = a + b * s, s = relative speed at contact in km/h; iota(0) = 0 for non-contact replays",
+    "a": -6.068, "b": 0.100,
+    "source": "Kusano and Gabler MAIS2+ occupant injury-risk logistic (NASS/CDS rear-end), belt covariate dropped",
+    "implementation": "proxima/injury.py (occupant); alternatives in proxima/injury_library.py"
+  },
+  "branch": {
+    "t_star": "max(0, t_crit - horizon_s)",
+    "horizon_s": 4.0,
+    "t_crit": "time of first contact, else of minimum TTC among active closing steps, else of minimum gap (proxima/trace.py)",
+    "latency_rule": "latency jitter applies only if the evasive reaction has not begun at t*"
+  },
+  "campaign": {
+    "N_scenarios": 150, "templates": 5, "scenarios_per_template": 30,
+    "k_runs": 5, "M_replays": 100, "min_replay_completeness": 0.9,
+    "reference_run": "run 0 of every scenario",
+    "lhs_seed": "global_seed + 7919 * template_index (scipy.stats.qmc.LatinHypercube)",
+    "execution_seed": "global_seed + sid * 1000 + run_idx",
+    "replay_draws": "numpy default_rng([execution_seed, 999]) -> Kernel.sample(M); replay m runs with seed execution_seed * 100 + m",
+    "rq3_kernel_rescaling": {"scales": [0.5, 2.0], "M_openpilot": 40, "M_transfuser": 20,
+                             "note": "same underlying draws as the reference campaign (common random numbers)"}
+  },
+  "subjects": {
+    "openpilot": {"system": "openpilot", "commit": "492ed731 (master, 2026-05-11)",
+                  "simulator": "MetaDrive via openpilot's official simulation bridge (tools/sim)",
+                  "global_seed": 20260722, "run_duration_wall_s": 130,
+                  "adapter": "adapters/metadrive_openpilot", "gpu_hours_reference_campaign": 800},
+    "transfuser": {"system": "TransFuser (PAMI 2022 model, branch 2022)", "commit": "9d413b2a (2025-10-19)",
+                   "simulator": "CARLA 0.9.10.1, synchronous, Town01, leaderboard agent interface",
+                   "global_seed": 20260806, "run_duration_sim_s": 40,
+                   "adapter": "adapters/carla_transfuser", "gpu_hours_reference_campaign": 1400}
+  }
+}

@@ -1,0 +1,27 @@
+{
+ "M": 20,
+ "M_sample": 100,
+ "branch_horizon_s": 4.0,
+ "scales": {
+  "0.5": {
+   "latency_sigma": 0.05,
+   "latency_bound": 0.125,
+   "friction_lo": 0.9,
+   "friction_hi": 1.025,
+   "ou_sigma_long": 0.25,
+   "ou_sigma_lat": 0.06,
+   "ou_theta": 1.0,
+   "alpha": 0.5
+  },
+  "2.0": {
+   "latency_sigma": 0.2,
+   "latency_bound": 0.5,
+   "friction_lo": 0.6000000000000001,
+   "friction_hi": 1.1,
+   "ou_sigma_long": 1.0,
+   "ou_sigma_lat": 0.24,
+   "ou_theta": 1.0,
+   "alpha": 2.0
+  }
+ }
+}

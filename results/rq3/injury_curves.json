@@ -1,0 +1,407 @@
+{
+ "curves": {
+  "Kusano-Gabler MAIS2+ (shipped)": "kusano2012",
+  "Kusano-Gabler MAIS2+, belted": "kusano2012",
+  "Kusano-Gabler MAIS2+, unbelted": "kusano2012",
+  "NHTSA 813219 all, MAIS2+": "nhtsa813219",
+  "NHTSA 813219 all, MAIS3+": "nhtsa813219",
+  "NHTSA 813219 all, fatality": "nhtsa813219",
+  "NHTSA 813219 rear_end, MAIS2+": "nhtsa813219",
+  "NHTSA 813219 rear_end, MAIS3+": "nhtsa813219",
+  "NHTSA 813219 rear_end, fatality": "nhtsa813219",
+  "NHTSA 813219 frontal, MAIS2+": "nhtsa813219",
+  "NHTSA 813219 frontal, MAIS3+": "nhtsa813219",
+  "NHTSA 813219 frontal, fatality": "nhtsa813219",
+  "Kusano-Gabler MAIS2+, dv=s/2": "kusano2012+half",
+  "NHTSA 813219 all, MAIS3+, dv=s/2": "nhtsa813219+half",
+  "Joksch fourth power": "joksch1993"
+ },
+ "subjects": {
+  "openpilot": {
+   "curves": {
+    "Kusano-Gabler MAIS2+ (shipped)": {
+     "source": "kusano2012",
+     "mean_H": 0.007893888592643504,
+     "nonzero": 28,
+     "rho_vs_shipped": 1.0,
+     "tau_vs_shipped": 1.0,
+     "rho_ci": [
+      0.9999999999999999,
+      1.0
+     ],
+     "pair_flip_frac": 0.0
+    },
+    "Kusano-Gabler MAIS2+, belted": {
+     "source": "kusano2012",
+     "mean_H": 0.004828547702527069,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9997691011106236,
+     "tau_vs_shipped": 0.9942013705851345,
+     "rho_ci": [
+      0.9989896379600077,
+      1.0
+     ],
+     "pair_flip_frac": 0.0028993147074327886
+    },
+    "Kusano-Gabler MAIS2+, unbelted": {
+     "source": "kusano2012",
+     "mean_H": 0.01261730754620229,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9997460112216859,
+     "tau_vs_shipped": 0.992619926199262,
+     "rho_ci": [
+      0.998850853550688,
+      0.999986475663369
+     ],
+     "pair_flip_frac": 0.0036900369003690036
+    },
+    "NHTSA 813219 all, MAIS2+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.012401744703680584,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9997383145920401,
+     "tau_vs_shipped": 0.9920927780706379,
+     "rho_ci": [
+      0.998832206349082,
+      0.9999735433393339
+     ],
+     "pair_flip_frac": 0.003953610964681075
+    },
+    "NHTSA 813219 all, MAIS3+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.004160183644303766,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9996305617769977,
+     "tau_vs_shipped": 0.9920927780706379,
+     "rho_ci": [
+      0.9984730725614153,
+      0.9999999999999999
+     ],
+     "pair_flip_frac": 0.003953610964681075
+    },
+    "NHTSA 813219 all, fatality": {
+     "source": "nhtsa813219",
+     "mean_H": 0.0008530713820895,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9981989886628645,
+     "tau_vs_shipped": 0.981549815498155,
+     "rho_ci": [
+      0.9942398322297609,
+      0.9999909537066112
+     ],
+     "pair_flip_frac": 0.00922509225092251
+    },
+    "NHTSA 813219 rear_end, MAIS2+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.005535732656663036,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9998537640367282,
+     "tau_vs_shipped": 0.9952556668423826,
+     "rho_ci": [
+      0.9992169665806675,
+      1.0
+     ],
+     "pair_flip_frac": 0.0023721665788086453
+    },
+    "NHTSA 813219 rear_end, MAIS3+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.0025273428356979402,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9987146628491383,
+     "tau_vs_shipped": 0.9831312598840275,
+     "rho_ci": [
+      0.9958605380293677,
+      0.9999457705889941
+     ],
+     "pair_flip_frac": 0.008434370057986295
+    },
+    "NHTSA 813219 rear_end, fatality": {
+     "source": "nhtsa813219",
+     "mean_H": 0.0005834291666003564,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9978218538102164,
+     "tau_vs_shipped": 0.9731154454401687,
+     "rho_ci": [
+      0.993464187859571,
+      0.9996894648038008
+     ],
+     "pair_flip_frac": 0.013442277279915656
+    },
+    "NHTSA 813219 frontal, MAIS2+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.01287784010335589,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9997383145920401,
+     "tau_vs_shipped": 0.9920927780706379,
+     "rho_ci": [
+      0.998832206349082,
+      0.9999735433393339
+     ],
+     "pair_flip_frac": 0.003953610964681075
+    },
+    "NHTSA 813219 frontal, MAIS3+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.003940061432743081,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9996305617769977,
+     "tau_vs_shipped": 0.9920927780706379,
+     "rho_ci": [
+      0.9984730725614153,
+      0.9999999999999999
+     ],
+     "pair_flip_frac": 0.003953610964681075
+    },
+    "NHTSA 813219 frontal, fatality": {
+     "source": "nhtsa813219",
+     "mean_H": 0.0007508093804370204,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9981835954035727,
+     "tau_vs_shipped": 0.981549815498155,
+     "rho_ci": [
+      0.9941330092907679,
+      0.9999999999999999
+     ],
+     "pair_flip_frac": 0.00922509225092251
+    },
+    "Kusano-Gabler MAIS2+, dv=s/2": {
+     "source": "kusano2012+half",
+     "mean_H": 0.0011846737651454006,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9997460112216859,
+     "tau_vs_shipped": 0.9905113336847654,
+     "rho_ci": [
+      0.9990162516189314,
+      0.9999366748435259
+     ],
+     "pair_flip_frac": 0.004744333157617291
+    },
+    "NHTSA 813219 all, MAIS3+, dv=s/2": {
+     "source": "nhtsa813219+half",
+     "mean_H": 0.0005211895534562893,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9996536516659353,
+     "tau_vs_shipped": 0.988929889298893,
+     "rho_ci": [
+      0.9986809166944378,
+      0.9999214171285599
+     ],
+     "pair_flip_frac": 0.005535055350553505
+    },
+    "Joksch fourth power": {
+     "source": "joksch1993",
+     "mean_H": 0.0012544596007306832,
+     "nonzero": 28,
+     "rho_vs_shipped": 0.9985607302562207,
+     "tau_vs_shipped": 0.9810226673695309,
+     "rho_ci": [
+      0.9953502869792423,
+      0.9999004855063275
+     ],
+     "pair_flip_frac": 0.009488666315234581
+    }
+   },
+   "summary": {
+    "n_alternatives": 14,
+    "mean_H_span_factor": 24.70855376504763,
+    "min_rho_vs_shipped": 0.9978218538102164,
+    "min_rho_curve": "NHTSA 813219 rear_end, fatality",
+    "max_pair_flip_frac": 0.013442277279915656,
+    "max_pair_flip_curve": "NHTSA 813219 rear_end, fatality",
+    "max_pair_flip_frac_excluding_joksch": 0.013442277279915656
+   }
+  },
+  "transfuser": {
+   "curves": {
+    "Kusano-Gabler MAIS2+ (shipped)": {
+     "source": "kusano2012",
+     "mean_H": 0.005716955861627916,
+     "nonzero": 104,
+     "rho_vs_shipped": 1.0,
+     "tau_vs_shipped": 1.0,
+     "rho_ci": [
+      0.9999999999999998,
+      1.0
+     ],
+     "pair_flip_frac": 0.0
+    },
+    "Kusano-Gabler MAIS2+, belted": {
+     "source": "kusano2012",
+     "mean_H": 0.003169627022670447,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9999963387397942,
+     "tau_vs_shipped": 0.9998027613412229,
+     "rho_ci": [
+      0.9999453706098798,
+      1.0
+     ],
+     "pair_flip_frac": 9.861932938856015e-05
+    },
+    "Kusano-Gabler MAIS2+, unbelted": {
+     "source": "kusano2012",
+     "mean_H": 0.010060640595743428,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9999963387397942,
+     "tau_vs_shipped": 0.9998027613412229,
+     "rho_ci": [
+      0.9999451805203176,
+      1.0
+     ],
+     "pair_flip_frac": 9.861932938856015e-05
+    },
+    "NHTSA 813219 all, MAIS2+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.010635784018464432,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9997986306886831,
+     "tau_vs_shipped": 0.9940828402366864,
+     "rho_ci": [
+      0.9992634679023705,
+      0.9999255994575159
+     ],
+     "pair_flip_frac": 0.0029585798816568047
+    },
+    "NHTSA 813219 all, MAIS3+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.0025955360047125457,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9999450810969136,
+     "tau_vs_shipped": 0.9978303747534516,
+     "rho_ci": [
+      0.9997135416286921,
+      0.9999926309525784
+     ],
+     "pair_flip_frac": 0.0010848126232741618
+    },
+    "NHTSA 813219 all, fatality": {
+     "source": "nhtsa813219",
+     "mean_H": 0.00032868141277126383,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9999890162193827,
+     "tau_vs_shipped": 0.9994082840236687,
+     "rho_ci": [
+      0.999900511445993,
+      1.0
+     ],
+     "pair_flip_frac": 0.0002958579881656805
+    },
+    "NHTSA 813219 rear_end, MAIS2+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.0040637683563045385,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9998498883315637,
+     "tau_vs_shipped": 0.995069033530572,
+     "rho_ci": [
+      0.9993847676629868,
+      0.9999476405979156
+     ],
+     "pair_flip_frac": 0.002465483234714004
+    },
+    "NHTSA 813219 rear_end, MAIS3+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.0012350566971642493,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9994727785303703,
+     "tau_vs_shipped": 0.9889546351084813,
+     "rho_ci": [
+      0.9983736492712445,
+      0.9997847829151744
+     ],
+     "pair_flip_frac": 0.005522682445759369
+    },
+    "NHTSA 813219 rear_end, fatality": {
+     "source": "nhtsa813219",
+     "mean_H": 5.226097376931267e-05,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9959286786511918,
+     "tau_vs_shipped": 0.9652859960552268,
+     "rho_ci": [
+      0.9890620706945511,
+      0.9986306551173074
+     ],
+     "pair_flip_frac": 0.01735700197238659
+    },
+    "NHTSA 813219 frontal, MAIS2+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.011508264996998604,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9996997766631276,
+     "tau_vs_shipped": 0.9919132149901381,
+     "rho_ci": [
+      0.9989910351758162,
+      0.999869510728848
+     ],
+     "pair_flip_frac": 0.004043392504930967
+    },
+    "NHTSA 813219 frontal, MAIS3+": {
+     "source": "nhtsa813219",
+     "mean_H": 0.002455258876305444,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9999816936989712,
+     "tau_vs_shipped": 0.9990138067061143,
+     "rho_ci": [
+      0.9998694366842478,
+      1.0
+     ],
+     "pair_flip_frac": 0.0004930966469428008
+    },
+    "NHTSA 813219 frontal, fatality": {
+     "source": "nhtsa813219",
+     "mean_H": 0.0002903751428782428,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9999816936989712,
+     "tau_vs_shipped": 0.9990138067061143,
+     "rho_ci": [
+      0.9998681813242773,
+      1.0
+     ],
+     "pair_flip_frac": 0.0004930966469428008
+    },
+    "Kusano-Gabler MAIS2+, dv=s/2": {
+     "source": "kusano2012+half",
+     "mean_H": 0.0013986923818454264,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9948742357119321,
+     "tau_vs_shipped": 0.9526627218934911,
+     "rho_ci": [
+      0.989033835894627,
+      0.9973706539302383
+     ],
+     "pair_flip_frac": 0.023668639053254437
+    },
+    "NHTSA 813219 all, MAIS3+, dv=s/2": {
+     "source": "nhtsa813219+half",
+     "mean_H": 0.0005930596376933459,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9951158788855126,
+     "tau_vs_shipped": 0.9536489151873766,
+     "rho_ci": [
+      0.9895111943113925,
+      0.997481609450877
+     ],
+     "pair_flip_frac": 0.023175542406311637
+    },
+    "Joksch fourth power": {
+     "source": "joksch1993",
+     "mean_H": 0.0005993490842176788,
+     "nonzero": 104,
+     "rho_vs_shipped": 0.9217478856222313,
+     "tau_vs_shipped": 0.81163708086785,
+     "rho_ci": [
+      0.8620652403302943,
+      0.9620505325551912
+     ],
+     "pair_flip_frac": 0.09418145956607495
+    }
+   },
+   "summary": {
+    "n_alternatives": 14,
+    "mean_H_span_factor": 220.20762658954104,
+    "min_rho_vs_shipped": 0.9217478856222313,
+    "min_rho_curve": "Joksch fourth power",
+    "max_pair_flip_frac": 0.09418145956607495,
+    "max_pair_flip_curve": "Joksch fourth power",
+    "max_pair_flip_frac_excluding_joksch": 0.023668639053254437
+   }
+  }
+ }
+}

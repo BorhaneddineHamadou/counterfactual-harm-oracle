@@ -1,0 +1,1052 @@
+[
+ {
+  "sid": 0,
+  "job_id": "s0_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 1,
+  "job_id": "s1_r0",
+  "t_star": 4.4,
+  "t_crit": 8.4,
+  "contact": false
+ },
+ {
+  "sid": 2,
+  "job_id": "s2_r0",
+  "t_star": 1.6500000000000004,
+  "t_crit": 5.65,
+  "contact": false
+ },
+ {
+  "sid": 3,
+  "job_id": "s3_r0",
+  "t_star": 2.8500000000000005,
+  "t_crit": 6.8500000000000005,
+  "contact": false
+ },
+ {
+  "sid": 4,
+  "job_id": "s4_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 5,
+  "job_id": "s5_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 6,
+  "job_id": "s6_r0",
+  "t_star": 4.300000000000001,
+  "t_crit": 8.3,
+  "contact": false
+ },
+ {
+  "sid": 7,
+  "job_id": "s7_r0",
+  "t_star": 4.4,
+  "t_crit": 8.4,
+  "contact": false
+ },
+ {
+  "sid": 8,
+  "job_id": "s8_r0",
+  "t_star": 3.9000000000000004,
+  "t_crit": 7.9,
+  "contact": true
+ },
+ {
+  "sid": 9,
+  "job_id": "s9_r0",
+  "t_star": 2.3000000000000007,
+  "t_crit": 6.300000000000001,
+  "contact": false
+ },
+ {
+  "sid": 10,
+  "job_id": "s10_r0",
+  "t_star": 0.0,
+  "t_crit": 1.6500000000000001,
+  "contact": false
+ },
+ {
+  "sid": 11,
+  "job_id": "s11_r0",
+  "t_star": 4.4,
+  "t_crit": 8.4,
+  "contact": false
+ },
+ {
+  "sid": 12,
+  "job_id": "s12_r0",
+  "t_star": 2.0500000000000007,
+  "t_crit": 6.050000000000001,
+  "contact": false
+ },
+ {
+  "sid": 13,
+  "job_id": "s13_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 14,
+  "job_id": "s14_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 15,
+  "job_id": "s15_r0",
+  "t_star": 3.8500000000000005,
+  "t_crit": 7.8500000000000005,
+  "contact": false
+ },
+ {
+  "sid": 16,
+  "job_id": "s16_r0",
+  "t_star": 3.95,
+  "t_crit": 7.95,
+  "contact": false
+ },
+ {
+  "sid": 17,
+  "job_id": "s17_r0",
+  "t_star": 4.35,
+  "t_crit": 8.35,
+  "contact": false
+ },
+ {
+  "sid": 18,
+  "job_id": "s18_r0",
+  "t_star": 4.050000000000001,
+  "t_crit": 8.05,
+  "contact": false
+ },
+ {
+  "sid": 19,
+  "job_id": "s19_r0",
+  "t_star": 4.25,
+  "t_crit": 8.25,
+  "contact": false
+ },
+ {
+  "sid": 20,
+  "job_id": "s20_r0",
+  "t_star": 0.0,
+  "t_crit": 1.25,
+  "contact": false
+ },
+ {
+  "sid": 21,
+  "job_id": "s21_r0",
+  "t_star": 4.25,
+  "t_crit": 8.25,
+  "contact": false
+ },
+ {
+  "sid": 22,
+  "job_id": "s22_r0",
+  "t_star": 4.15,
+  "t_crit": 8.15,
+  "contact": false
+ },
+ {
+  "sid": 23,
+  "job_id": "s23_r0",
+  "t_star": 4.15,
+  "t_crit": 8.15,
+  "contact": false
+ },
+ {
+  "sid": 24,
+  "job_id": "s24_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 25,
+  "job_id": "s25_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 26,
+  "job_id": "s26_r0",
+  "t_star": 4.050000000000001,
+  "t_crit": 8.05,
+  "contact": false
+ },
+ {
+  "sid": 27,
+  "job_id": "s27_r0",
+  "t_star": 1.25,
+  "t_crit": 5.25,
+  "contact": true
+ },
+ {
+  "sid": 28,
+  "job_id": "s28_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 29,
+  "job_id": "s29_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 30,
+  "job_id": "s30_r0",
+  "t_star": 4.0,
+  "t_crit": 8.0,
+  "contact": false
+ },
+ {
+  "sid": 31,
+  "job_id": "s31_r0",
+  "t_star": 3.45,
+  "t_crit": 7.45,
+  "contact": true
+ },
+ {
+  "sid": 32,
+  "job_id": "s32_r0",
+  "t_star": 2.9000000000000004,
+  "t_crit": 6.9,
+  "contact": false
+ },
+ {
+  "sid": 33,
+  "job_id": "s33_r0",
+  "t_star": 3.95,
+  "t_crit": 7.95,
+  "contact": false
+ },
+ {
+  "sid": 34,
+  "job_id": "s34_r0",
+  "t_star": 0.0,
+  "t_crit": 3.8000000000000003,
+  "contact": false
+ },
+ {
+  "sid": 35,
+  "job_id": "s35_r0",
+  "t_star": 5.050000000000001,
+  "t_crit": 9.05,
+  "contact": false
+ },
+ {
+  "sid": 36,
+  "job_id": "s36_r0",
+  "t_star": 3.8500000000000005,
+  "t_crit": 7.8500000000000005,
+  "contact": false
+ },
+ {
+  "sid": 37,
+  "job_id": "s37_r0",
+  "t_star": 3.8500000000000005,
+  "t_crit": 7.8500000000000005,
+  "contact": false
+ },
+ {
+  "sid": 38,
+  "job_id": "s38_r0",
+  "t_star": 4.0,
+  "t_crit": 8.0,
+  "contact": false
+ },
+ {
+  "sid": 39,
+  "job_id": "s39_r0",
+  "t_star": 3.8500000000000005,
+  "t_crit": 7.8500000000000005,
+  "contact": false
+ },
+ {
+  "sid": 40,
+  "job_id": "s40_r0",
+  "t_star": 3.8500000000000005,
+  "t_crit": 7.8500000000000005,
+  "contact": false
+ },
+ {
+  "sid": 41,
+  "job_id": "s41_r0",
+  "t_star": 3.1000000000000005,
+  "t_crit": 7.1000000000000005,
+  "contact": false
+ },
+ {
+  "sid": 42,
+  "job_id": "s42_r0",
+  "t_star": 3.9000000000000004,
+  "t_crit": 7.9,
+  "contact": false
+ },
+ {
+  "sid": 43,
+  "job_id": "s43_r0",
+  "t_star": 0.0,
+  "t_crit": 3.3000000000000003,
+  "contact": false
+ },
+ {
+  "sid": 44,
+  "job_id": "s44_r0",
+  "t_star": 4.450000000000001,
+  "t_crit": 8.450000000000001,
+  "contact": false
+ },
+ {
+  "sid": 45,
+  "job_id": "s45_r0",
+  "t_star": 0.0,
+  "t_crit": 1.0,
+  "contact": false
+ },
+ {
+  "sid": 46,
+  "job_id": "s46_r0",
+  "t_star": 5.1,
+  "t_crit": 9.1,
+  "contact": false
+ },
+ {
+  "sid": 47,
+  "job_id": "s47_r0",
+  "t_star": 5.1,
+  "t_crit": 9.1,
+  "contact": false
+ },
+ {
+  "sid": 48,
+  "job_id": "s48_r0",
+  "t_star": 4.700000000000001,
+  "t_crit": 8.700000000000001,
+  "contact": false
+ },
+ {
+  "sid": 49,
+  "job_id": "s49_r0",
+  "t_star": 4.1,
+  "t_crit": 8.1,
+  "contact": false
+ },
+ {
+  "sid": 50,
+  "job_id": "s50_r0",
+  "t_star": 4.800000000000001,
+  "t_crit": 8.8,
+  "contact": false
+ },
+ {
+  "sid": 51,
+  "job_id": "s51_r0",
+  "t_star": 0.0,
+  "t_crit": 0.9,
+  "contact": false
+ },
+ {
+  "sid": 52,
+  "job_id": "s52_r0",
+  "t_star": 4.6,
+  "t_crit": 8.6,
+  "contact": false
+ },
+ {
+  "sid": 53,
+  "job_id": "s53_r0",
+  "t_star": 2.7,
+  "t_crit": 6.7,
+  "contact": false
+ },
+ {
+  "sid": 54,
+  "job_id": "s54_r0",
+  "t_star": 4.200000000000001,
+  "t_crit": 8.200000000000001,
+  "contact": false
+ },
+ {
+  "sid": 55,
+  "job_id": "s55_r0",
+  "t_star": 2.5500000000000007,
+  "t_crit": 6.550000000000001,
+  "contact": false
+ },
+ {
+  "sid": 56,
+  "job_id": "s56_r0",
+  "t_star": 3.5500000000000007,
+  "t_crit": 7.550000000000001,
+  "contact": true
+ },
+ {
+  "sid": 57,
+  "job_id": "s57_r0",
+  "t_star": 0.2999999999999998,
+  "t_crit": 4.3,
+  "contact": false
+ },
+ {
+  "sid": 58,
+  "job_id": "s58_r0",
+  "t_star": 3.9000000000000004,
+  "t_crit": 7.9,
+  "contact": false
+ },
+ {
+  "sid": 59,
+  "job_id": "s59_r0",
+  "t_star": 2.0,
+  "t_crit": 6.0,
+  "contact": false
+ },
+ {
+  "sid": 60,
+  "job_id": "s60_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 61,
+  "job_id": "s61_r0",
+  "t_star": 2.2,
+  "t_crit": 6.2,
+  "contact": true
+ },
+ {
+  "sid": 62,
+  "job_id": "s62_r0",
+  "t_star": 4.1,
+  "t_crit": 8.1,
+  "contact": false
+ },
+ {
+  "sid": 63,
+  "job_id": "s63_r0",
+  "t_star": 4.15,
+  "t_crit": 8.15,
+  "contact": false
+ },
+ {
+  "sid": 64,
+  "job_id": "s64_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 65,
+  "job_id": "s65_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 66,
+  "job_id": "s66_r0",
+  "t_star": 5.050000000000001,
+  "t_crit": 9.05,
+  "contact": false
+ },
+ {
+  "sid": 67,
+  "job_id": "s67_r0",
+  "t_star": 3.2,
+  "t_crit": 7.2,
+  "contact": false
+ },
+ {
+  "sid": 68,
+  "job_id": "s68_r0",
+  "t_star": 5.0,
+  "t_crit": 9.0,
+  "contact": false
+ },
+ {
+  "sid": 69,
+  "job_id": "s69_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 70,
+  "job_id": "s70_r0",
+  "t_star": 0.0,
+  "t_crit": 1.75,
+  "contact": false
+ },
+ {
+  "sid": 71,
+  "job_id": "s71_r0",
+  "t_star": 2.7,
+  "t_crit": 6.7,
+  "contact": true
+ },
+ {
+  "sid": 72,
+  "job_id": "s72_r0",
+  "t_star": 3.45,
+  "t_crit": 7.45,
+  "contact": true
+ },
+ {
+  "sid": 73,
+  "job_id": "s73_r0",
+  "t_star": 2.0,
+  "t_crit": 6.0,
+  "contact": true
+ },
+ {
+  "sid": 74,
+  "job_id": "s74_r0",
+  "t_star": 3.9000000000000004,
+  "t_crit": 7.9,
+  "contact": false
+ },
+ {
+  "sid": 75,
+  "job_id": "s75_r0",
+  "t_star": 3.5,
+  "t_crit": 7.5,
+  "contact": false
+ },
+ {
+  "sid": 76,
+  "job_id": "s76_r0",
+  "t_star": 4.75,
+  "t_crit": 8.75,
+  "contact": false
+ },
+ {
+  "sid": 77,
+  "job_id": "s77_r0",
+  "t_star": 2.0,
+  "t_crit": 6.0,
+  "contact": true
+ },
+ {
+  "sid": 78,
+  "job_id": "s78_r0",
+  "t_star": 4.550000000000001,
+  "t_crit": 8.55,
+  "contact": true
+ },
+ {
+  "sid": 79,
+  "job_id": "s79_r0",
+  "t_star": 1.6500000000000004,
+  "t_crit": 5.65,
+  "contact": true
+ },
+ {
+  "sid": 80,
+  "job_id": "s80_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 81,
+  "job_id": "s81_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 82,
+  "job_id": "s82_r0",
+  "t_star": 4.700000000000001,
+  "t_crit": 8.700000000000001,
+  "contact": false
+ },
+ {
+  "sid": 83,
+  "job_id": "s83_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 84,
+  "job_id": "s84_r0",
+  "t_star": 1.75,
+  "t_crit": 5.75,
+  "contact": true
+ },
+ {
+  "sid": 85,
+  "job_id": "s85_r0",
+  "t_star": 4.75,
+  "t_crit": 8.75,
+  "contact": false
+ },
+ {
+  "sid": 86,
+  "job_id": "s86_r0",
+  "t_star": 4.65,
+  "t_crit": 8.65,
+  "contact": false
+ },
+ {
+  "sid": 87,
+  "job_id": "s87_r0",
+  "t_star": 2.8500000000000005,
+  "t_crit": 6.8500000000000005,
+  "contact": false
+ },
+ {
+  "sid": 88,
+  "job_id": "s88_r0",
+  "t_star": 0.0,
+  "t_crit": 0.0,
+  "contact": false
+ },
+ {
+  "sid": 89,
+  "job_id": "s89_r0",
+  "t_star": 3.95,
+  "t_crit": 7.95,
+  "contact": false
+ },
+ {
+  "sid": 90,
+  "job_id": "s90_r0",
+  "t_star": 4.85,
+  "t_crit": 8.85,
+  "contact": false
+ },
+ {
+  "sid": 91,
+  "job_id": "s91_r0",
+  "t_star": 1.6000000000000005,
+  "t_crit": 5.6000000000000005,
+  "contact": false
+ },
+ {
+  "sid": 92,
+  "job_id": "s92_r0",
+  "t_star": 4.700000000000001,
+  "t_crit": 8.700000000000001,
+  "contact": false
+ },
+ {
+  "sid": 93,
+  "job_id": "s93_r0",
+  "t_star": 4.700000000000001,
+  "t_crit": 8.700000000000001,
+  "contact": false
+ },
+ {
+  "sid": 94,
+  "job_id": "s94_r0",
+  "t_star": 4.5,
+  "t_crit": 8.5,
+  "contact": false
+ },
+ {
+  "sid": 95,
+  "job_id": "s95_r0",
+  "t_star": 3.7,
+  "t_crit": 7.7,
+  "contact": false
+ },
+ {
+  "sid": 96,
+  "job_id": "s96_r0",
+  "t_star": 5.65,
+  "t_crit": 9.65,
+  "contact": false
+ },
+ {
+  "sid": 97,
+  "job_id": "s97_r0",
+  "t_star": 3.1000000000000005,
+  "t_crit": 7.1000000000000005,
+  "contact": false
+ },
+ {
+  "sid": 98,
+  "job_id": "s98_r0",
+  "t_star": 4.25,
+  "t_crit": 8.25,
+  "contact": false
+ },
+ {
+  "sid": 99,
+  "job_id": "s99_r0",
+  "t_star": 4.9,
+  "t_crit": 8.9,
+  "contact": false
+ },
+ {
+  "sid": 100,
+  "job_id": "s100_r0",
+  "t_star": 4.800000000000001,
+  "t_crit": 8.8,
+  "contact": false
+ },
+ {
+  "sid": 101,
+  "job_id": "s101_r0",
+  "t_star": 6.100000000000001,
+  "t_crit": 10.100000000000001,
+  "contact": false
+ },
+ {
+  "sid": 102,
+  "job_id": "s102_r0",
+  "t_star": 3.0500000000000007,
+  "t_crit": 7.050000000000001,
+  "contact": false
+ },
+ {
+  "sid": 103,
+  "job_id": "s103_r0",
+  "t_star": 1.75,
+  "t_crit": 5.75,
+  "contact": false
+ },
+ {
+  "sid": 104,
+  "job_id": "s104_r0",
+  "t_star": 4.75,
+  "t_crit": 8.75,
+  "contact": false
+ },
+ {
+  "sid": 105,
+  "job_id": "s105_r0",
+  "t_star": 2.0500000000000007,
+  "t_crit": 6.050000000000001,
+  "contact": false
+ },
+ {
+  "sid": 106,
+  "job_id": "s106_r0",
+  "t_star": 4.700000000000001,
+  "t_crit": 8.700000000000001,
+  "contact": false
+ },
+ {
+  "sid": 107,
+  "job_id": "s107_r0",
+  "t_star": 4.35,
+  "t_crit": 8.35,
+  "contact": false
+ },
+ {
+  "sid": 108,
+  "job_id": "s108_r0",
+  "t_star": 5.25,
+  "t_crit": 9.25,
+  "contact": false
+ },
+ {
+  "sid": 109,
+  "job_id": "s109_r0",
+  "t_star": 4.65,
+  "t_crit": 8.65,
+  "contact": false
+ },
+ {
+  "sid": 110,
+  "job_id": "s110_r0",
+  "t_star": 2.45,
+  "t_crit": 6.45,
+  "contact": false
+ },
+ {
+  "sid": 111,
+  "job_id": "s111_r0",
+  "t_star": 3.6500000000000004,
+  "t_crit": 7.65,
+  "contact": false
+ },
+ {
+  "sid": 112,
+  "job_id": "s112_r0",
+  "t_star": 5.700000000000001,
+  "t_crit": 9.700000000000001,
+  "contact": false
+ },
+ {
+  "sid": 113,
+  "job_id": "s113_r0",
+  "t_star": 5.15,
+  "t_crit": 9.15,
+  "contact": false
+ },
+ {
+  "sid": 114,
+  "job_id": "s114_r0",
+  "t_star": 4.75,
+  "t_crit": 8.75,
+  "contact": false
+ },
+ {
+  "sid": 115,
+  "job_id": "s115_r0",
+  "t_star": 4.65,
+  "t_crit": 8.65,
+  "contact": false
+ },
+ {
+  "sid": 116,
+  "job_id": "s116_r0",
+  "t_star": 3.1500000000000004,
+  "t_crit": 7.15,
+  "contact": true
+ },
+ {
+  "sid": 117,
+  "job_id": "s117_r0",
+  "t_star": 5.65,
+  "t_crit": 9.65,
+  "contact": false
+ },
+ {
+  "sid": 118,
+  "job_id": "s118_r0",
+  "t_star": 4.9,
+  "t_crit": 8.9,
+  "contact": false
+ },
+ {
+  "sid": 119,
+  "job_id": "s119_r0",
+  "t_star": 2.0,
+  "t_crit": 6.0,
+  "contact": false
+ },
+ {
+  "sid": 120,
+  "job_id": "s120_r0",
+  "t_star": 3.9000000000000004,
+  "t_crit": 7.9,
+  "contact": false
+ },
+ {
+  "sid": 121,
+  "job_id": "s121_r0",
+  "t_star": 3.5,
+  "t_crit": 7.5,
+  "contact": false
+ },
+ {
+  "sid": 122,
+  "job_id": "s122_r0",
+  "t_star": 3.8500000000000005,
+  "t_crit": 7.8500000000000005,
+  "contact": false
+ },
+ {
+  "sid": 123,
+  "job_id": "s123_r0",
+  "t_star": 4.300000000000001,
+  "t_crit": 8.3,
+  "contact": false
+ },
+ {
+  "sid": 124,
+  "job_id": "s124_r0",
+  "t_star": 4.5,
+  "t_crit": 8.5,
+  "contact": false
+ },
+ {
+  "sid": 125,
+  "job_id": "s125_r0",
+  "t_star": 4.15,
+  "t_crit": 8.15,
+  "contact": false
+ },
+ {
+  "sid": 126,
+  "job_id": "s126_r0",
+  "t_star": 4.550000000000001,
+  "t_crit": 8.55,
+  "contact": false
+ },
+ {
+  "sid": 127,
+  "job_id": "s127_r0",
+  "t_star": 3.95,
+  "t_crit": 7.95,
+  "contact": false
+ },
+ {
+  "sid": 128,
+  "job_id": "s128_r0",
+  "t_star": 5.65,
+  "t_crit": 9.65,
+  "contact": false
+ },
+ {
+  "sid": 129,
+  "job_id": "s129_r0",
+  "t_star": 5.700000000000001,
+  "t_crit": 9.700000000000001,
+  "contact": false
+ },
+ {
+  "sid": 130,
+  "job_id": "s130_r0",
+  "t_star": 4.550000000000001,
+  "t_crit": 8.55,
+  "contact": false
+ },
+ {
+  "sid": 131,
+  "job_id": "s131_r0",
+  "t_star": 4.0,
+  "t_crit": 8.0,
+  "contact": false
+ },
+ {
+  "sid": 132,
+  "job_id": "s132_r0",
+  "t_star": 5.75,
+  "t_crit": 9.75,
+  "contact": false
+ },
+ {
+  "sid": 133,
+  "job_id": "s133_r0",
+  "t_star": 3.95,
+  "t_crit": 7.95,
+  "contact": false
+ },
+ {
+  "sid": 134,
+  "job_id": "s134_r0",
+  "t_star": 5.75,
+  "t_crit": 9.75,
+  "contact": false
+ },
+ {
+  "sid": 135,
+  "job_id": "s135_r0",
+  "t_star": 5.450000000000001,
+  "t_crit": 9.450000000000001,
+  "contact": false
+ },
+ {
+  "sid": 136,
+  "job_id": "s136_r0",
+  "t_star": 4.75,
+  "t_crit": 8.75,
+  "contact": false
+ },
+ {
+  "sid": 137,
+  "job_id": "s137_r0",
+  "t_star": 4.9,
+  "t_crit": 8.9,
+  "contact": false
+ },
+ {
+  "sid": 138,
+  "job_id": "s138_r0",
+  "t_star": 3.95,
+  "t_crit": 7.95,
+  "contact": false
+ },
+ {
+  "sid": 139,
+  "job_id": "s139_r0",
+  "t_star": 5.5,
+  "t_crit": 9.5,
+  "contact": false
+ },
+ {
+  "sid": 140,
+  "job_id": "s140_r0",
+  "t_star": 5.35,
+  "t_crit": 9.35,
+  "contact": false
+ },
+ {
+  "sid": 141,
+  "job_id": "s141_r0",
+  "t_star": 5.25,
+  "t_crit": 9.25,
+  "contact": false
+ },
+ {
+  "sid": 142,
+  "job_id": "s142_r0",
+  "t_star": 5.0,
+  "t_crit": 9.0,
+  "contact": false
+ },
+ {
+  "sid": 143,
+  "job_id": "s143_r0",
+  "t_star": 4.450000000000001,
+  "t_crit": 8.450000000000001,
+  "contact": false
+ },
+ {
+  "sid": 144,
+  "job_id": "s144_r0",
+  "t_star": 4.9,
+  "t_crit": 8.9,
+  "contact": false
+ },
+ {
+  "sid": 145,
+  "job_id": "s145_r0",
+  "t_star": 4.65,
+  "t_crit": 8.65,
+  "contact": false
+ },
+ {
+  "sid": 146,
+  "job_id": "s146_r0",
+  "t_star": 5.0,
+  "t_crit": 9.0,
+  "contact": false
+ },
+ {
+  "sid": 147,
+  "job_id": "s147_r0",
+  "t_star": 4.6,
+  "t_crit": 8.6,
+  "contact": false
+ },
+ {
+  "sid": 148,
+  "job_id": "s148_r0",
+  "t_star": 2.9000000000000004,
+  "t_crit": 6.9,
+  "contact": false
+ },
+ {
+  "sid": 149,
+  "job_id": "s149_r0",
+  "t_star": 4.65,
+  "t_crit": 8.65,
+  "contact": false
+ }
+]

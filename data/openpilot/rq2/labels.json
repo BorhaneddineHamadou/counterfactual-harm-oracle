@@ -1,0 +1,45 @@
+{
+  "n_refs": 150,
+  "M_rq2": 40,
+  "dropped": {
+    "1_crn": 0,
+    "1_full": 0,
+    "0.5": 0,
+    "2.0": 0
+  },
+  "mean_H": {
+    "1_crn": 0.007842095623302126,
+    "1_full": 0.007893888592643505,
+    "0.5": 0.007257316588162352,
+    "2.0": 0.014956405597170885
+  },
+  "rank_crn": {
+    "0.5_vs_1": {
+      "spearman_all": 0.7301603195840835,
+      "spearman_nontrivial": 0.5001556013250156,
+      "n_nontrivial": 30
+    },
+    "1_vs_2": {
+      "spearman_all": 0.6419386420016665,
+      "spearman_nontrivial": 0.3370236556494179,
+      "n_nontrivial": 40
+    },
+    "0.5_vs_2": {
+      "spearman_all": 0.7030940730398226,
+      "spearman_nontrivial": 0.405427587512491,
+      "n_nontrivial": 35
+    }
+  },
+  "rank_vs_full_ref": {
+    "0.5_vs_1full": {
+      "spearman_all": 0.7528054038329355,
+      "spearman_nontrivial": 0.47112144923042865,
+      "n_nontrivial": 30
+    },
+    "2.0_vs_1full": {
+      "spearman_all": 0.651857073830027,
+      "spearman_nontrivial": 0.30622693394808476,
+      "n_nontrivial": 40
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+ "protocol": "3 repeats x 5 folds, 3 seeds per readout, tau 0.05",
+ "curves": {
+  "Kusano-Gabler MAIS2+ (shipped)": {
+   "mean_H": 0.007893888592643504,
+   "apfd_field_tier": 0.8511200263225985,
+   "rho_field_tier": 0.7112907621227621,
+   "apfd_scalars": {
+    "min TTC": 0.8009146514687359,
+    "min clearance": 0.8203777047312983,
+    "realized impact speed": 0.7205138438516338
+   },
+   "apfd_binary": 0.7142214064487263,
+   "best_scalar": "min clearance",
+   "lead_over_best_scalar": 0.030742321591300192,
+   "lead_over_verdict": 0.1368986198738722
+  },
+  "Kusano-Gabler MAIS2+, belted": {
+   "mean_H": 0.004828547702527069,
+   "apfd_field_tier": 0.8313244659643372,
+   "rho_field_tier": 0.7046066726624587,
+   "apfd_scalars": {
+    "min TTC": 0.7954902899282938,
+    "min clearance": 0.7994661743941694,
+    "realized impact speed": 0.7054664419164208
+   },
+   "apfd_binary": 0.6993347439502079,
+   "best_scalar": "min clearance",
+   "lead_over_best_scalar": 0.03185829157016773,
+   "lead_over_verdict": 0.13198972201412928
+  },
+  "Kusano-Gabler MAIS2+, unbelted": {
+   "mean_H": 0.01261730754620229,
+   "apfd_field_tier": 0.85987103547797,
+   "rho_field_tier": 0.7134381348215467,
+   "apfd_scalars": {
+    "min TTC": 0.8028120132308934,
+    "min clearance": 0.8333821482477517,
+    "realized impact speed": 0.7294696007517917
+   },
+   "apfd_binary": 0.7233087120746586,
+   "best_scalar": "min clearance",
+   "lead_over_best_scalar": 0.02648888723021825,
+   "lead_over_verdict": 0.13656232340331131
+  }
+ }
+}

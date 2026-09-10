@@ -1,0 +1,14 @@
+{
+ "kernel": {
+  "latency_sigma": 0.1,
+  "latency_bound": 0.25,
+  "friction_lo": 0.8,
+  "friction_hi": 1.05,
+  "ou_sigma_long": 0.5,
+  "ou_sigma_lat": 0.12,
+  "ou_theta": 1.0,
+  "alpha": 1.0
+ },
+ "M": 100,
+ "branch_horizon_s": 4.0
+}

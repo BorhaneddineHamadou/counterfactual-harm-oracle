@@ -1,0 +1,6 @@
+{
+ "_comment": "Criticality direction declared by CommonRoad-CriMe 0.4.5 for every implemented measure (TypeMonotone.POS: larger = more critical; NEG: smaller = more critical). Extracted from the installed toolbox so the analysis does not need it installed. Stubs (ACI, AGS, CS, PRI, P_SMH, P_SRS, PTTC, RSS, SP, TC, TV) return None in 0.4.5 and were excluded; TTM is the generic base of TTB/TTK/TTS/TTR.",
+ "monotone": {"ACI": "POS", "AGS": "NEG", "ALatReq": "POS", "ALongReq": "NEG", "AReq": "POS", "BTN": "POS", "CI": "POS", "CPI": "POS", "CS": "POS", "DA": "NEG", "DCE": "NEG", "DST": "POS", "DeltaV": "POS", "ET": "NEG", "HW": "NEG", "LatJ": "POS", "LongJ": "POS", "MSD": "POS", "PET": "NEG", "PF": "POS", "PRI": "POS", "PSD": "NEG", "PTTC": "NEG", "P_MC": "POS", "P_SMH": "POS", "P_SRS": "POS", "RSS": "POS", "SOI": "POS", "SP": "POS", "STN": "POS", "TC": "NEG", "TCI": "NEG", "TET": "POS", "THW": "NEG", "TIT": "POS", "TTB": "NEG", "TTC": "NEG", "TTCE": "NEG", "TTCStar": "NEG", "TTK": "NEG", "TTM": "NEG", "TTR": "NEG", "TTS": "NEG", "TTZ": "NEG", "TV": "NEG", "WTTC": "NEG", "WTTR": "NEG"},
+ "stubs_excluded": ["ACI", "AGS", "CS", "PRI", "P_SMH", "P_SRS", "PTTC", "RSS", "SP", "TC", "TV", "TTM"],
+ "toolbox": "commonroad-crime 0.4.5 (Lin and Althoff, IV 2023)"
+}

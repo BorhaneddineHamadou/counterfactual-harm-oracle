@@ -1,0 +1,67 @@
+{
+  "global_seed": 20260721,
+  "n_per_template": 80,
+  "k_runs": 6,
+  "tier1_M": 200,
+  "branch_horizon_s": 4.0,
+  "split": {
+    "train": 0.5,
+    "cal": 0.2,
+    "test": 0.3
+  },
+  "ensemble": {
+    "n_members": 5,
+    "hidden": [
+      32,
+      32
+    ],
+    "epochs": 400,
+    "lr": 0.001,
+    "batch": 64
+  },
+  "conformal_alphas": [
+    0.1,
+    0.2
+  ],
+  "h_star": 0.1,
+  "escalation_budget": 0.1,
+  "rq2": {
+    "kernel_scales": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "verdict_budget": 60,
+    "verdict_reps": 50,
+    "verdict_M": 100,
+    "verdict_k": 2
+  },
+  "rq3": {
+    "budgets": [
+      10,
+      20,
+      40,
+      80,
+      160
+    ],
+    "reps": 200,
+    "k_runs": 2,
+    "alpha": 0.05,
+    "rate_deltas": [
+      0.08,
+      0.15,
+      0.3
+    ],
+    "tune_n_scenarios": 80,
+    "tune_k": 3,
+    "severity_fades": [
+      0.05,
+      0.1,
+      0.15
+    ],
+    "severity_recal_weaks": [
+      0.1
+    ]
+  },
+  "h_star_hi": 0.5
+}
