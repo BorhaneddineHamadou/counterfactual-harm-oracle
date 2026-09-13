@@ -107,7 +107,10 @@ gap over the verdict +0.200 [0.094, 0.310] / +0.126 [0.043, 0.213], over
 TTC on openpilot +0.188 [0.044, 0.344]. Severity among scenarios that
 crash again, TransFuser (n = 31): field tier 0.87 [0.74, 0.93], impact
 speed 0.81, three replays 0.82, M = 100 0.82, verdict 0.57 with 94% ties;
-openpilot (n = 23) every interval crosses zero. Output: `results/rq2/table2.json`
+openpilot (n = 23) every interval crosses zero. Point estimates reproduce
+exactly; the bootstrap interval endpoints and paired means depend on the
+resampling stream at the third decimal (e.g. +0.376 [0.119, 0.608] for the
+paper's +0.372 [0.135, 0.598]). Output: `results/rq2/table2.json`
 (`--exclude-reexecuted` reproduces the 599-run subset of an earlier draft,
 see `data/README.md`; every number is identical).
 
@@ -118,7 +121,7 @@ see `data/README.md`; every number is identical).
 | label agreement across scales, minimum over pairs, all / non-trivial | 0.64 / 0.34; 0.80 / 0.68 |
 | distilled-oracle agreement, minimum over pairs, all / non-trivial | 0.71 / 0.57; 0.77 / 0.57 |
 | references with H > 0 at α = 0.5 / 1 / 2 | 14 / 18 / 23%; 55 / 61 / 75% |
-| openpilot mean H; TransFuser median H | .0073 / .0078 / .0150; .0002 / .0005 / .0010 |
+| openpilot mean H; TransFuser median H | .0073 / .0078 / .0150; .0002 / .0004 / .0010 |
 | oracle r_s vs canonical labels at 0.5 / 1 / 2 | .60 / .70 / .63; .72 / .79 / .76 |
 | TransFuser paired per-reference harm, α = 2 vs 1: rises vs falls | 82 vs 30, Wilcoxon p < 10⁻⁵ |
 | cost of halving vs doubling | −0.095 vs −0.062; −0.070 vs −0.035 |
@@ -173,9 +176,8 @@ a schematic.
 ## Reproduction status
 
 Every script above was run while assembling this package (scikit-learn
-1.8, numpy 1.26). What reproduces and what does not:
-
-- **Reproduces to the printed precision**: all of Sec. 5.1 and the worked
+1.8, numpy 1.26), and again after the paper's numbers were revised on
+2026-09-13. Everything reproduces to the printed precision: all of Sec. 5.1 and the worked
   examples; every row and interval of Table 1; the paired margins, ties,
   escalation rows and per-template correlations of RQ1; coverage, MAE,
   split-half reliability; every ablation of Sec. 5.2 and the
@@ -193,14 +195,3 @@ Every script above was run while assembling this package (scikit-learn
   width and MAE exactly (`results/rq1/<subject>_calibration_rerun.npz`);
   rebuilding `data/` from the raw traces reproduces every derived file
   to 1 ulp.
-- **Small deviations, documented rather than tuned**:
-  - Table 3, TransFuser median harm at α = 1: the paper prints .0005, the
-    stored label file gives .00044. The openpilot oracle-level minimum is
-    0.705, printed as 0.71.
-  - RQ2 paired bootstrap intervals move in the third decimal with the
-    random-number stream (e.g. +0.378 [0.121, 0.616] for +0.372 [0.135,
-    0.598]); points reproduce exactly.
-  - Regulatory mapping: openpilot's cut-ins sit entirely inside the UN
-    R157 lateral-velocity and distance boxes, as stated; TransFuser's
-    cut-in lateral velocities are 80% inside (the paper makes no claim
-    for TransFuser there).
