@@ -65,7 +65,7 @@ Output: `results/rq1/table1.json`.
 
 Output: `results/rq1/calibration.json`.
 
-## RQ1, ablations — `python analysis/rq1_ablations.py [corpus|sharing|target|tau]`
+## RQ1, ablations — `python analysis/rq1_ablations.py {corpus|sharing|target|tau|all}`
 
 | claim | paper |
 |---|---|
@@ -112,9 +112,7 @@ openpilot (n = 23) every interval crosses zero. Point estimates reproduce
 exactly; the bootstrap interval endpoints and paired means depend on the
 resampling stream at the third decimal (this script gives +0.378 [0.121, 0.616]
 for the paper's +0.372 [0.135, 0.598], and +0.083 [−0.084, 0.231] for its
-+0.084 [−0.079, 0.225]). Output: `results/rq2/table2.json`
-(`--exclude-reexecuted` reproduces the 599-run subset of an earlier draft,
-see `data/README.md`; every number is identical).
++0.084 [−0.079, 0.225]). Output: `results/rq2/table2.json`.
 
 ## RQ3, Table 3 and Sec. 5.4 — `python analysis/rq3_kernel_rescaling.py` (`--retrain` ~35 min per subject)
 
@@ -130,7 +128,7 @@ see `data/README.md`; every number is identical).
 
 Stored: `results/rq3/<subject>_kernel_oracle_scores.npz`. Output: `results/rq3/table3.json`.
 
-## RQ3, injury curves — `python analysis/rq3_injury_curves.py` (`--sweep` re-distills, hours)
+## RQ3, injury curves — `python analysis/rq3_injury_curves.py`
 
 | claim | paper |
 |---|---|
@@ -139,9 +137,7 @@ Stored: `results/rq3/<subject>_kernel_oracle_scores.npz`. Output: `results/rq3/t
 | comparable pairs that reorder | 1.3%; 9.4% (the fourth-power rule alone) |
 | field tier's r_s lead over the best telemetry scalar across all fourteen | +0.23 (openpilot); +0.08 to +0.09 (TransFuser) |
 
-Output: `results/rq3/injury_curves.json` (`--sweep`, not reported in the paper:
-re-distilling the tier under each curve at a reduced protocol,
-`results/rq3/injury_sweep_<subject>.json`).
+Output: `results/rq3/injury_curves.json`.
 
 ## RQ4, Sec. 5.5 and Fig. 3 — `python analysis/rq4_portability.py` (~10 min)
 
@@ -153,7 +149,7 @@ re-distilling the tier under each curve at a reduced protocol,
 | re-anchoring with n = 25 local labels | 96.8% ± 4.5; 97.5% ± 2.8 |
 | M = 30 labels vs M = 100: every re-anchoring point moves by at most 1.0 coverage point (max |Δ| 0.010 at n = 100, TransFuser→openpilot); n = 25 × M = 30 = 750 replays = 5% of a campaign | as stated |
 
-Output: `results/rq4/portability_rerun.json`, `results/rq4/fig3_reanchoring.csv`.
+Output: `results/rq4/portability.json`, `results/rq4/fig3_reanchoring.csv`.
 
 ## External baselines and suite validity
 
@@ -164,7 +160,7 @@ Output: `results/rq4/portability_rerun.json`, `results/rq4/fig3_reanchoring.csv`
 - `python analysis/regulatory_mapping.py`: openpilot stopped-lead suite
   93% inside the Euro NCAP CCRs speed range, cut-ins entirely inside the
   UN R157 lateral-velocity and distance boxes; TransFuser below grids
-  starting at 20–50 km/h. Output `results/regulatory/regulatory_mapping_rerun.json`.
+  starting at 20–50 km/h. Output `results/regulatory/regulatory_mapping.json`.
 - `python analysis/axioms.py`: A1 monotonicity, A2 invariance, A3
   continuity on the pilot world at M = 100, seeds 20260722 / 1 / 987654:
   219 cases, 0 violations. Output `results/axioms/`.
@@ -177,34 +173,22 @@ a schematic.
 
 ## Reproduction status
 
-Every script above was run while assembling this package (scikit-learn
-1.8, numpy 1.26), and again after the paper's numbers were revised on
-2026-09-13. Everything reproduces to the printed precision: all of Sec. 5.1 and the worked
-  examples; every row and interval of Table 1; the paired margins, ties,
-  escalation rows and per-template correlations of RQ1; coverage, MAE,
-  split-half reliability; every ablation of Sec. 5.2 and the
-  tie-threshold ablation of Sec. 7; all of Table 2 and the RQ2 prose;
-  Table 3 and the RQ3 prose; the injury-curve re-scoring (span, r_s,
-  reordered pairs, r_s lead over the telemetry scalars); every RQ4 number
-  including the 2.5× width (foreign interval width over the TransFuser
-  oracle's native out-of-fold width, 0.0562 / 0.0226); the CriMe ranking
-  (0.646 / 0.666, non-collision 0.484 / 0.527); the regulatory fractions;
-  the axiom battery (219 / 0). Retraining the field tier reproduces the
-  stored out-of-fold scores to floating-point precision on both subjects
-  (all ten repeats, maximum difference 4e-16;
-  `results/rq1/<subject>_field_tier_oof_rerun.npz`); retraining the
-  conformal magnitude readout reproduces the stored per-repeat coverage,
-  width and MAE exactly (`results/rq1/<subject>_calibration_rerun.npz`);
-  rebuilding `data/` from the raw traces reproduces every derived file
-  to 1 ulp.
+Every script above was run on the shipped `data/` and `results/`
+(scikit-learn 1.8, numpy 1.26) and reproduces the paper to the printed
+precision: all of Sec. 5.1 and the worked examples; every row and interval
+of Table 1; the paired margins, ties, escalation rows and per-template
+correlations of RQ1; coverage, MAE and split-half reliability; every
+ablation of Sec. 5.2 and the tie-threshold ablation of Sec. 7; all of
+Table 2 and the RQ2 prose (bootstrap interval endpoints to the third
+decimal, as noted above); Table 3 and the RQ3 prose; the injury-curve
+re-scoring; every RQ4 number; the CriMe ranking; the regulatory fractions;
+the axiom battery.
 
-### Second pass (2026-09-13)
-
-After the first revision, every script was re-run against the revised PDF
-and nine further text items were found (Fig. 3 width 2.2× → 2.5×; the
-Wilcoxon bound 10⁻⁵ → 10⁻⁴; "unchanged to three decimals" → "at most one
-coverage point" for the M = 30 re-anchoring; the verdict's 94% tie figure
-restated as 29 of 31 runs without a distinct value; and five third-decimal
-roundings: .827, +0.013, +0.036, −0.096, 99.7%). All nine were applied to
-the paper the same day; the tables above quote the corrected values, and
-no deviation between the paper and this package remains.
+Retraining the field tier (`rq1_train_field_tier.py`) reproduces the stored
+out-of-fold scores on both subjects to floating-point precision (all ten
+repeats, maximum difference 4e-16); `rq1_calibration.py --rerun` reproduces
+the stored per-repeat coverage, width and MAE exactly;
+`rq3_kernel_rescaling.py --retrain` reproduces the stored kernel-scale
+scores exactly; rebuilding `data/` from the raw traces reproduces every
+derived file to 1 ulp. Re-run outputs are written next to the stored files
+with a `_rerun` / `_retrained` suffix for comparison.

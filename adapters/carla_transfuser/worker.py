@@ -59,7 +59,6 @@ def _attempt(job, port, timeout):
 
 
 def main():
-    print("[worker build 2026-08-06T10:30 subprocess-per-job]", flush=True)
     jobs_file = sys.argv[1]
     task = int(sys.argv[2]) if len(sys.argv) > 2 else 0
     ntask = int(sys.argv[3]) if len(sys.argv) > 3 else 1

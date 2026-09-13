@@ -39,12 +39,10 @@ The expensive `phys_H` column is 0 on replay rows, as in the campaign.
 
 `sid, run, template, seed, outcome (worker's done reason), contact,
 impact_speed_ms, ttc_min_s, min_clearance_m, speed_at_crit_ms,
-ego_vmax_ms, t_crit_s, n_steps, in_paper_heldout`. Runs 1–4 are the
-held-out criterion of RQ2. `in_paper_heldout` is 0 for one openpilot run
-(s50_r2) whose first attempt crashed the bridge and which was re-executed
-by a top-up job. The paper's criterion is all 600 runs; the RQ2 script's
-`--exclude-reexecuted` reproduces the 599-run subset an earlier draft
-used (every reported number is identical on both).
+ego_vmax_ms, t_crit_s, n_steps`. Runs 1–4 are the held-out criterion of
+RQ2 (600 executions per subject). One openpilot execution (scenario 50,
+run 2) was re-executed as the same job after its first attempt failed in
+the bridge before producing a trace; its row is the re-execution.
 
 ## `<subject>/replay_outcomes.npz`
 

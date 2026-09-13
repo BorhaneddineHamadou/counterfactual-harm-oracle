@@ -49,8 +49,7 @@ PARAMS_D = Path.home() / ".comma" / "params" / "d"
 # Latching offroad alerts live in the SHARED persistent params dir, so one
 # tripped guard blocks openpilot startup for every later run on every node
 # (hardwared: startup_conditions["no_excessive_actuation"]) -> silent 100%
-# no_engage. Cleared before every attempt; job 666891/666892-97 lost ~100
-# GPU-hours to a lateral trip written 2026-08-07 03:31.
+# no_engage. Cleared before every attempt.
 STICKY_OFFROAD_ALERTS = ("Offroad_ExcessiveActuation",)
 
 

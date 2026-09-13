@@ -16,7 +16,7 @@ and expected value.
 | `rq1_ablations.py` | Table 1 row, Sec. 5.2, Sec. 7 | corpus, label-sharing, target / feature and tie-threshold ablations |
 | `rq2_predictive_validity.py` | Table 2, Sec. 5.3 | the outside check: run 0 predicts runs 1–4 |
 | `rq3_kernel_rescaling.py` | Table 3, Sec. 5.4 | rank stability under α ∈ {0.5, 1, 2} at both tiers |
-| `rq3_injury_curves.py` | Sec. 5.4 | fourteen published injury curves; re-distillation sweep |
+| `rq3_injury_curves.py` | Sec. 5.4 | fourteen published injury curves |
 | `rq4_portability.py` | Sec. 5.5, Fig. 3 | zero-shot transfer, self-awareness, re-anchoring |
 | `crime_baselines.py` | Table 1 row, Sec. 5.2 | the 35 CommonRoad-CriMe measures against harm |
 | `regulatory_mapping.py` | Sec. 4.2 | the suites against UN R157 / Euro NCAP parameter grids |

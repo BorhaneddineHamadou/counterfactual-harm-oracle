@@ -3,7 +3,7 @@ injury curve a lever").
 
 iota only reweights impact speeds the campaign already recorded, so every
 reference can be re-scored under curves nobody here fitted, with no new
-simulation. Stage 1 (default) re-labels the 150 references of each subject
+simulation. The script re-labels the 150 references of each subject
 under the 14 published alternatives to the shipped Kusano-Gabler MAIS2+
 logistic (belt states restored; nine NHTSA 2010-2015 NASS-CDS logistics;
 the equal-mass dv = s/2 convention on two of them; Joksch's fourth-power
@@ -13,32 +13,21 @@ and the stored field tier's r_s lead over the best telemetry scalar (min
 TTC, min clearance, realized impact speed) when all are scored against each
 curve's labels (the paper's "+0.23 / +0.08 to +0.09").
 
-Stage 2 (--sweep) re-distills the field tier under each curve's labels and
-reports its harm-weighted APFD lead over the same scalars, a supplementary
-check not reported in the paper. Retraining 14 oracles is expensive; by default the sweep
-uses 3 CV repeats and 3 seeds per readout (the shipped protocol is 10
-repeats and 6 seeds on openpilot), which is documented in the output.
-
-Usage:  python analysis/rq3_injury_curves.py                 # stage 1, both subjects
-        python analysis/rq3_injury_curves.py --sweep --subject openpilot [--reps 3] [--seeds 3]
-Output: results/rq3/injury_curves.json ; results/rq3/injury_sweep_<subject>.json
+Usage:  python analysis/rq3_injury_curves.py
+Output: results/rq3/injury_curves.json
 """
 from __future__ import annotations
 
-import argparse
 import json
 import os
 import sys
-import time
 
 import numpy as np
 from scipy.stats import kendalltau, spearmanr
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from analysis import common as C                      # noqa: E402
-from proxima import field_tier as FT                  # noqa: E402
 from proxima.injury_library import library            # noqa: E402
-from proxima.metrics import apfd_h, ranks             # noqa: E402
 
 SHIPPED = "Kusano-Gabler MAIS2+ (shipped)"
 NBOOT = 4000
@@ -143,73 +132,8 @@ def stage1():
           "r_s lead over the best telemetry scalar +0.23 (openpilot), +0.08 to +0.09 (TransFuser)")
 
 
-# ------------------------------------------------------------------ sweep
-def distill_oof(S, y, reps, seeds):
-    """Field-tier OOF scores under labels y (declared tau, shipped composite
-    of the subject, no inner CV: tau = 0.05 on both subjects here)."""
-    n = len(y)
-    S2 = dict(S)
-    S2["y"] = y
-    oofs = []
-    for rep in range(reps):
-        oof = np.full(n, np.nan)
-        for te in C.folds_for(rep, n):
-            tri = np.setdiff1d(np.arange(n), te)
-            Xtr, ytr, w, _ = FT.corpus_ordered(S2, tri)
-            parts = FT.fit_readouts(Xtr, ytr, w, rep, seeds)
-            p, tz, tr = FT.predict_readouts(parts, S["X2"][te])
-            oof[te] = FT.structured_score(p, tz, tr, FT.TAU, p_in_tail=S["p_in_tail"])
-        oofs.append(oof)
-    return np.array(oofs)
-
-
-def sweep(subject, reps, seeds):
-    S = C.load_subject(subject)
-    lib = published_curves()
-    sid, contact, dv = replay_outcomes(S)
-    base = C.baselines(S)
-    scal = {k: v for k, v in base.items() if k != "binary verdict"}
-    out = {"protocol": f"{reps} repeats x 5 folds, {seeds} seeds per readout, tau 0.05",
-           "curves": {}}
-    fp = C.results_path("rq3", f"injury_sweep_{subject}.json")
-    t0 = time.time()
-    for n in lib:
-        y = harm_by_reference(S, sid, contact, dv, lib[n][0])
-        oofs = distill_oof(S, y, reps, seeds)
-        ap_ft = float(np.mean([apfd_h(o, y) for o in oofs]))
-        ap_sc = {k: float(apfd_h(v, y)) for k, v in scal.items()}
-        ap_bin = float(apfd_h(base["binary verdict"], y))
-        best = max(ap_sc, key=ap_sc.get)
-        rho = float(np.mean([spearmanr(o, y).statistic for o in oofs]))
-        out["curves"][n] = {"mean_H": float(y.mean()), "apfd_field_tier": ap_ft,
-                            "rho_field_tier": rho, "apfd_scalars": ap_sc,
-                            "apfd_binary": ap_bin, "best_scalar": best,
-                            "lead_over_best_scalar": ap_ft - ap_sc[best],
-                            "lead_over_verdict": ap_ft - ap_bin}
-        print(f"[{time.time()-t0:.0f}s] {n[:40]:40s} meanH {y.mean():.5f} "
-              f"APFD_H ft {ap_ft:.3f} best scalar {best} {ap_sc[best]:.3f} "
-              f"lead {ap_ft-ap_sc[best]:+.3f} (vs verdict {ap_ft-ap_bin:+.3f}) rho {rho:.3f}",
-              flush=True)
-        json.dump(out, open(fp, "w"), indent=1, default=float)
-    leads = [v["lead_over_best_scalar"] for v in out["curves"].values()]
-    out["lead_range"] = [float(min(leads)), float(max(leads))]
-    json.dump(out, open(fp, "w"), indent=1, default=float)
-    print(f"lead over best telemetry scalar across {len(leads)} curves: "
-          f"[{min(leads):+.3f}, {max(leads):+.3f}]  (APFD_H, re-distilled at the reduced protocol; "
-          f"the paper reports the r_s lead of the stored tier, see stage 1)\nsaved {fp}")
-
-
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--sweep", action="store_true")
-    ap.add_argument("--subject", choices=C.SUBJECTS, default="openpilot")
-    ap.add_argument("--reps", type=int, default=3)
-    ap.add_argument("--seeds", type=int, default=3)
-    a = ap.parse_args()
-    if a.sweep:
-        sweep(a.subject, a.reps, a.seeds)
-    else:
-        stage1()
+    stage1()
 
 
 if __name__ == "__main__":

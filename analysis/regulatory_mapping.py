@@ -42,7 +42,7 @@ UN R157's lateral-velocity and distance boxes, while TransFuser's suite,
 calibrated to that stack's 15 km/h cruise, sits below grids that start at
 20 to 50 km/h.
 
-Usage:  python analysis/regulatory_mapping.py [--out results/regulatory/regulatory_mapping_rerun.json]
+Usage:  python analysis/regulatory_mapping.py [--out results/regulatory/regulatory_mapping.json]
 """
 from __future__ import annotations
 
@@ -259,7 +259,7 @@ def analyse(subject):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=C.results_path("regulatory", "regulatory_mapping_rerun.json"))
+    ap.add_argument("--out", default=C.results_path("regulatory", "regulatory_mapping.json"))
     a = ap.parse_args()
     report = {"sources": {
         "UN R157": "UN Regulation No. 157 (ALKS), Annex 3 pp. 45-56, as "

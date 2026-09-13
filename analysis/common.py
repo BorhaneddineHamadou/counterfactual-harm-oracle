@@ -16,9 +16,6 @@ Keys of S (n = 150 references, sid order):
   inj_by_ref             {row: injuries in replay order} (escalation)
   nominal_runs           list of dict rows of nominal_runs.csv (750)
   hold                   {sid: [(contact, impact_speed)]} for runs 1..4 (600)
-  hold_paper             same, without the one openpilot run (s50_r2) that was
-                         re-executed by a top-up job (the 599-run subset an
-                         earlier draft of the paper used; all numbers identical)
   n_seeds, p_in_tail, tau_rule   the subject's field-tier settings
 """
 from __future__ import annotations
@@ -97,12 +94,9 @@ def load_subject(subject):
 
     nominal_runs = read_csv(data_path(subject, "nominal_runs.csv"))
     hold = {int(s): [] for s in sids}
-    hold_paper = {int(s): [] for s in sids}       # 599/600: re-executed run excluded
     for r in nominal_runs:
         if r["run"] != 0:
             hold[r["sid"]].append((bool(r["contact"]), float(r["impact_speed_ms"])))
-            if r.get("in_paper_heldout", 1) == 1:
-                hold_paper[r["sid"]].append((bool(r["contact"]), float(r["impact_speed_ms"])))
 
     S = dict(name=subject, label=LABEL[subject], sids=sids, sid_row=sid_row,
              y=y, se=L["se"].astype(float), crash_frac=L["crash_frac"].astype(float),
@@ -116,7 +110,6 @@ def load_subject(subject):
              rep_injury=rep_injury, rep_dlat=L["rep_dlat"].astype(float),
              rep_gain=L["rep_gain"].astype(float), H_rep=L["H_rep"].astype(float),
              inj_by_ref=inj_by_ref, nominal_runs=nominal_runs, hold=hold,
-             hold_paper=hold_paper,
              global_seed=int(L["global_seed"]))
     S.update(SETTINGS[subject])
     return S
@@ -136,7 +129,7 @@ def baselines(S):
 
 def crime_best(S):
     """The strongest third-party CriMe measure per subject (Table 1 row
-    'Best of 35 CriMe measures'), as scored in results/crime/crime_vs_harm.json:
+    'Best of 35 CriMe measures'), as scored in results/crime/crime_table.json:
     CPI (worst-of-run folding) on openpilot, WTTC at the criticality instant
     on TransFuser, each in its declared criticality direction."""
     rows = json.load(open(os.path.join(DATA, "crime", f"{S['name']}_measures.json")))

@@ -2,7 +2,7 @@
 templates to tune ranges for a healthy crash/near-miss spectrum — the
 carla_transfuser analogue of campaign/openpilot_calibrate.py.
 
-Ranges are scaled to TransFuser's measured ~4 m/s cruise (smoke 2026-08-05):
+Ranges are scaled to TransFuser's measured ~4 m/s cruise:
 threats must be slower/closer than the MetaDrive-suite mid-spectrum values or
 the interaction never triggers inside the 40 s window.
 
@@ -108,7 +108,7 @@ def generate(rnd):
         for j in jobs:
             f.write(json.dumps(j) + "\n")
     print(f"{len(jobs)} jobs -> {jobs_file}")
-    print("submit:\n  JOBS_FILE=" + jobs_file + " sbatch --array=0-3 "
+    print("submit:\n  JOBS_FILE=" + jobs_file + " sbatch --array=0-3 " +
           os.path.join(BASE, "adapters", "carla_transfuser", "calib.slurm"))
 
 

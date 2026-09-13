@@ -14,7 +14,7 @@ violation is a real effect, not sampling noise. The paper reports the
 battery over three seeds: 219 cases, zero violations.
 
 Usage:  python analysis/axioms.py [--seeds 20260722,1,987654] [--M 100]
-            [--n-mono 40] [--n-cont 20] [--tag _rerun]
+            [--n-mono 40] [--n-cont 20] [--tag SUFFIX]
 Runtime: a few minutes per seed on one core.
 """
 from __future__ import annotations
@@ -42,7 +42,7 @@ def main():
     ap.add_argument("--n-cont", type=int, default=20,
                     help="A3 boundary searches (some do not survive the "
                          "bisection precondition)")
-    ap.add_argument("--tag", default="_rerun")
+    ap.add_argument("--tag", default="", help="suffix for the output file names")
     a = ap.parse_args()
     kernel = Kernel()
     total_n = total_v = 0

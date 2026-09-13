@@ -156,7 +156,6 @@ def stage_features(subject, store, out, n_jobs):
             outc[r["job_id"]] = r.get("outcome", "")
     for r in rows:
         r["outcome"] = outc.get(f"s{r['sid']}_r{r['run']}", "")
-        r["in_paper_heldout"] = 1 if r["run"] > 0 else ""
     with open(os.path.join(out, "nominal_runs.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader()

@@ -33,7 +33,6 @@
   "run0_collisions": 13,
   "scenarios_crashing_again": 23,
   "held_out_runs": 600,
-  "held_out_runs_excl_reexecuted": 599,
   "gpu_hours_reference_campaign": 800,
   "examples": {
    "figure1_sid40": {
@@ -114,7 +113,6 @@
   "run0_collisions": 21,
   "scenarios_crashing_again": 31,
   "held_out_runs": 600,
-  "held_out_runs_excl_reexecuted": 600,
   "gpu_hours_reference_campaign": 1400,
   "oncoming_replay_contacts": 1270,
   "oncoming_replay_contacts_ego_moving": 0.9968503937007874

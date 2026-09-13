@@ -6,9 +6,8 @@ declared parameter we could have tuned until the results came out. The answer
 is to re-score the recorded impact speeds under curves nobody involved in this
 paper fitted, and show the ordering does not care.
 
-Every entry below is either (a) a logistic whose intercept and slope are quoted
-from a peer-reviewed paper or a government report, or (b) an explicitly
-synthetic shape, labelled as such, kept because earlier drafts reported it.
+Every entry below is a curve whose coefficients are quoted from a
+peer-reviewed paper or a government report.
 
 Sources
 -------
@@ -80,30 +79,11 @@ def nhtsa(s_ms, mode="all", level="MAIS3+", half=False):
     return _sigmoid(a + b * _speed(s_ms, half) * MS_TO_MPH)
 
 
-# --- synthetic shapes, kept from the earlier draft and labelled as such -----
-def step(s_ms):
-    """Any contact counts 1: the binary verdict as a degenerate injury curve."""
-    return (np.asarray(s_ms, dtype=float) > 0).astype(float)
-
-
-def ramp(s_ms, sat_kmh):
-    return np.minimum(np.asarray(s_ms, dtype=float) * MS_TO_KMH / sat_kmh, 1.0)
-
-
-def quadratic(s_ms, ref_kmh=100.0):
-    return np.minimum((np.asarray(s_ms, dtype=float) * MS_TO_KMH / ref_kmh) ** 2,
-                      1.0)
-
-
+# --- power law -------------------------------------------------------------
 def joksch(s_ms, ref_kmh=115.0):
     """Joksch's fourth-power fatality rule, normalised at ref_kmh."""
     return np.minimum((np.asarray(s_ms, dtype=float) * MS_TO_KMH / ref_kmh) ** 4,
                       1.0)
-
-
-def pedestrian(s_ms):
-    """Steeper stand-in used for struck pedestrians; not a fitted model."""
-    return _sigmoid(-6.90 + 0.160 * np.asarray(s_ms, dtype=float) * MS_TO_KMH)
 
 
 def library(include_half=True):
@@ -133,12 +113,5 @@ def library(include_half=True):
         add("NHTSA 813219 all, MAIS3+, dv=s/2",
             lambda s: nhtsa(s, "all", "MAIS3+", half=True),
             True, "nhtsa813219+half")
-    add("pedestrian logistic (synthetic)", pedestrian, False, "-")
-    add("saturating ramp, 30 km/h (synthetic)",
-        lambda s: ramp(s, 30.0), False, "-")
-    add("saturating ramp, 60 km/h (synthetic)",
-        lambda s: ramp(s, 60.0), False, "-")
-    add("quadratic (synthetic)", quadratic, False, "-")
     add("Joksch fourth power", joksch, True, "joksch1993")
-    add("step: any contact (synthetic)", step, False, "-")
     return lib

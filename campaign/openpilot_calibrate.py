@@ -6,26 +6,25 @@ generate : 8 LHS scenarios per template x 1 seed per round.
 analyze  : per-template conflict texture (outcome, min gap, TTC_min, speed
            at criticality, Delta-v) + flags for degenerate cases.
 
-Rounds 2-3 were generated with ad-hoc range edits (tightened ranges live in
-configs/phase1_calibrated_ranges.json); round 4 pushes the three templates
+Rounds 2-3 were generated with ad-hoc range edits; round 4 pushes the three templates
 still lacking a crash tail, using the drivers identified from rounds 1-3:
 LeadDecel tail needs a_lead >= 4.7; OncomingDrift needs the drift to complete
 before the pass (vy_drift/y_frac up, t_stay long, d_trig matched to closing
 time); CrossingTraffic near-misses cluster at d_place <= 100, v_cross >= 2.
 
-Round 6 (2026-08-15) re-tunes LeadDecel and CutIn for the SEEING SUT. Rounds
-1-5 were calibrated against the blind SUT, whose ego crawls at ~5 m/s; the
-seeing ego cruises at 12.4 m/s and, because rendering the threat slows the
-simulator, its run window is only ~7.7 s of sim after engagement (~60 m of
-ego travel, 20.3 Hz trace). Under those ranges the ego-threat gap never
-reaches the trigger distance -- the A/B of 2026-08-15 armed LeadDecel in
-1/11 runs and CutIn in 2/9 -- so the staged conflict simply never happens.
-The round-6 boxes were designed against the 119/117 measured launch profiles
-(see the A/B session): they arm in ~94% of draws with the ego at ~11 m/s,
-~2.5 s of run left, and a required-avoidance-deceleration spectrum spanning
-3-5.5 m/s^2 (a third of draws above 5). Round-6 runs MUST set
-PROXIMA_RENDER_THREATS=1 (proxima_phase1.slurm now does) or they recalibrate
-the blind world again.
+Round 6 re-tunes LeadDecel and CutIn for the perceiving stack (threats
+rendered to openpilot's camera, PROXIMA_RENDER_THREATS=1). Rounds 1-5 were
+calibrated with unrendered threats, where the ego crawls at ~5 m/s; the
+perceiving ego cruises at 12.4 m/s and, because rendering the threat slows
+the simulator, its run window is only ~7.7 s of sim after engagement (~60 m
+of ego travel, 20.3 Hz trace). Under the earlier ranges the ego-threat gap
+rarely reached the trigger distance (LeadDecel armed in 1/11 runs, CutIn in
+2/9), so the staged conflict did not happen. The round-6 boxes were designed
+against the measured launch profiles: they arm in ~94% of draws with the ego
+at ~11 m/s, ~2.5 s of run left, and a required-avoidance-deceleration
+spectrum spanning 3-5.5 m/s^2 (a third of draws above 5). Calibration runs
+must set PROXIMA_RENDER_THREATS=1 (the SLURM scripts do) or they calibrate
+the unrendered configuration.
 
 Usage: python3 campaign/openpilot_calibrate.py generate|analyze [round]
 The adopted ranges are configs/openpilot_scenario_ranges.json.
@@ -96,8 +95,7 @@ RANGES_R7 = {
                   "t_lat": (1.6, 2.6), "a_cut": (0, 1.5)},
 }
 
-# NOTE (2026-08-16): the R8 CutIn box below was adopted into
-# configs/phase1_calibrated_ranges.json and then REVERTED. Its apparent
+# NOTE: the R8 CutIn box below was adopted and then reverted. Its apparent
 # health was an artefact: at the time, ~half of every CutIn draw spawned the
 # threat in the ego's own lane (the lane_shift clamp, fixed since), so the
 # "texture" was largely a slow-lead scenario. With the lane fix in place the
@@ -187,7 +185,7 @@ def generate(rnd):
         for j in jobs:
             f.write(json.dumps(j) + "\n")
     print(f"{len(jobs)} jobs -> {jobs_file}")
-    print("submit:\n  JOBS_FILE=" + jobs_file + " sbatch --array=0-3 "
+    print("submit:\n  JOBS_FILE=" + jobs_file + " sbatch --array=0-3 " +
           os.path.join(BASE, "adapters", "metadrive_openpilot", "calibrate.slurm"))
 
 

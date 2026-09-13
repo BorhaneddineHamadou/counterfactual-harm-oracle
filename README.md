@@ -25,7 +25,7 @@ python -m pytest tests -q                # core invariants incl. Remark 1 (binar
 python analysis/campaign_summary.py      # Sec. 5.1, Fig. 1 example, the abstract's inversion pair   (seconds)
 python analysis/rq1_report.py            # Table 1 and the RQ1 prose, from stored out-of-fold scores  (~2 min)
 python analysis/rq1_calibration.py       # conformal coverage, MAE, label reliability                  (seconds)
-python analysis/rq1_ablations.py         # corpus / label-sharing / target / tau ablations             (seconds)
+python analysis/rq1_ablations.py all     # corpus / label-sharing / target / tau ablations             (seconds)
 python analysis/rq2_predictive_validity.py   # Table 2, the outside check on held-out executions       (~3 min)
 python analysis/rq3_kernel_rescaling.py  # Table 3, kernel sensitivity                                 (seconds)
 python analysis/rq3_injury_curves.py     # fourteen published injury curves                             (seconds)

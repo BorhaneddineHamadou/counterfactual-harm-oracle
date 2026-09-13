@@ -1,6 +1,6 @@
 """The 71 checkpoint-trajectory features (third block of the field-tier input).
 
-The per-ref forensics (2026-08-24) showed openpilot's fragile runs differ from
+Per-reference inspection of the campaign traces showed openpilot's fragile runs differ from
 robust ones not in any end-state scalar but in WHEN the evasion/braking
 commitment happens relative to the closing gap: nominal traces of 38%-crash
 and 0%-crash scenarios have near-identical minima, end states and 2D miss

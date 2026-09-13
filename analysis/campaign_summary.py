@@ -82,7 +82,6 @@ def main():
             "run0_collisions": int((~S["NC"]).sum()),
             "scenarios_crashing_again": int(sum(any(c for c, _ in v) for v in S["hold"].values())),
             "held_out_runs": int(sum(len(v) for v in S["hold"].values())),
-            "held_out_runs_excl_reexecuted": int(sum(len(v) for v in S["hold_paper"].values())),
             "gpu_hours_reference_campaign": cfg["subjects"][subject]["gpu_hours_reference_campaign"],
         }
         if subject == "transfuser":
@@ -119,8 +118,7 @@ def main():
                   f"{100 * d['oncoming_replay_contacts_ego_moving']:.1f}% of "
                   f"{d['oncoming_replay_contacts']}   [paper 99.7%]")
         print(f"  run-0 verdict collisions {d['run0_collisions']}, scenarios crashing again in runs 1-4 "
-              f"{d['scenarios_crashing_again']}, held-out executions {d['held_out_runs']} "
-              f"({d['held_out_runs_excl_reexecuted']} without the re-executed run)   [paper "
+              f"{d['scenarios_crashing_again']}, held-out executions {d['held_out_runs']}   [paper "
               f"{'13, 23, 600' if subject == 'openpilot' else '21, 31, 600'}]")
         print(f"  reference campaign: {d['gpu_hours_reference_campaign']} GPU-hours   [paper "
               f"{'800' if subject == 'openpilot' else '1,400'}]")

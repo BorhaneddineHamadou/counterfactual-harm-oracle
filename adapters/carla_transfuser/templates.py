@@ -148,7 +148,7 @@ class _ProximaScenario:
         yaw = math.degrees(h) + yaw_offset_deg
         # base spawn height on the road elevation at (x, y): a fixed world z
         # puts the threat under elevated roads/bridges, invisible to the SUT
-        # (found 2026-08-06 on the Town01 river road)
+        # (observed on the Town01 river road)
         wp = self.world.get_map().get_waypoint(
             self.carla.Location(x=x, y=y, z=0.0), project_to_road=True)
         base_z = wp.transform.location.z if wp is not None else 0.0

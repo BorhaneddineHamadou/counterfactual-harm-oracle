@@ -74,8 +74,8 @@ def _straight_spawns(world):
 
     The straight prefix matters twice: the choreographed templates assume a
     mostly-straight interaction lane, and TransFuser brakes to a permanent
-    stop at spawns that stare into a junction/boundary wall (probed
-    2026-08-05: Town01 spawn 0 faces the map-edge barrier 45 m out).
+    stop at spawns that stare into a junction/boundary wall (Town01
+    spawn 0 faces the map-edge barrier 45 m out).
     """
     m = world.get_map()
     for sp in m.get_spawn_points():
@@ -127,7 +127,7 @@ def _corridor_clear(world, wp, path, d_place, y0):
         settled = probe.get_transform().location.z
         probe.destroy()
         # must settle AT road level; over water/embankment it falls away
-        # (found 2026-08-06: crosser spawned over the river beside the
+        # (a crosser spawned over the river beside the
         # bridge, fell to z=-6.4 during the pre-trigger wait, and crossed
         # invisibly underwater)
         if abs(settled - road_z) > 0.8:
@@ -138,7 +138,7 @@ def _corridor_clear(world, wp, path, d_place, y0):
 def pick_spawn(world, job=None):
     """First straight spawn; for CrossingTraffic, first straight spawn whose
     crossing corridor is physically open (fences/walls block the crosser —
-    seen on the Town01 riverside road, smoke 2026-08-05)."""
+    seen on the Town01 riverside road)."""
     cands = list(_straight_spawns(world))
     if not cands:
         raise RuntimeError("no spawn point with a long straight lane")

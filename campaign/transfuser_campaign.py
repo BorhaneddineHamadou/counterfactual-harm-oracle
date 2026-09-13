@@ -8,7 +8,7 @@ Stages (each idempotent; workers skip existing traces):
                 t* = max(0, t_crit - T_h), M kernel replays per reference.
   status      : progress of both stages.
 
-Cost basis (calibration 2026-08-06): ~5.5 min wall per 40 s run.
+Cost basis (measured during calibration): ~5.5 min wall per 40 s run.
 nominal = 150 x 5 = 750 jobs (~69 GPU-h); tier-1 sizing decided at
 gen-tier1 time (M=100 parity costs ~1375 GPU-h -- see M_REPLAYS note).
 

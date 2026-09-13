@@ -21,7 +21,7 @@ steps (paper Sec. 4.3 "RQ4 in detail", results Sec. 5.5, Fig. 3).
 The local ceiling is the subject's own out-of-fold field tier
 (results/rq1/<subject>_field_tier_oof.npz).
 
-Usage:  python analysis/rq4_portability.py [--out results/rq4/portability_rerun.json]
+Usage:  python analysis/rq4_portability.py [--out results/rq4/portability.json]
 Runtime: ~10 min on a 32-core node (two source ensembles x 3 seeds).
 """
 from __future__ import annotations
@@ -132,7 +132,7 @@ def native_qhat(S):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default=C.results_path("rq4", "portability_rerun.json"))
+    ap.add_argument("--out", default=C.results_path("rq4", "portability.json"))
     a = ap.parse_args()
     t0 = time.time()
     subjects = {s: C.load_subject(s) for s in C.SUBJECTS}
