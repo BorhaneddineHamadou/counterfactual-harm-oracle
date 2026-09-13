@@ -117,7 +117,7 @@ def main():
                   + "   [paper oncoming 89%]")
             print(f"  oncoming replay contacts with the ego still moving: "
                   f"{100 * d['oncoming_replay_contacts_ego_moving']:.1f}% of "
-                  f"{d['oncoming_replay_contacts']}   [paper 99%]")
+                  f"{d['oncoming_replay_contacts']}   [paper 99.7%]")
         print(f"  run-0 verdict collisions {d['run0_collisions']}, scenarios crashing again in runs 1-4 "
               f"{d['scenarios_crashing_again']}, held-out executions {d['held_out_runs']} "
               f"({d['held_out_runs_excl_reexecuted']} without the re-executed run)   [paper "

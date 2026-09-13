@@ -16,7 +16,7 @@ that recomputes them from `data/` (runtimes are for a 32-core node).
 | openpilot run-0 contact rate by template | 27% (cut-in) … 0% (crossing) |
 | top 15 openpilot references hold … of suite harm; the top one | 88%; 11% |
 | TransFuser oncoming-drift contact rate; cut-in; lead templates | 52%; a fifth; 0 |
-| oncoming template's share of TransFuser harm; ego still moving at impact | 89%; 99.7% of the 1,270 oncoming replay contacts have v_ego > 0 (paper prints 99%) |
+| oncoming template's share of TransFuser harm; ego still moving at impact | 89%; 99.7% of the 1,270 oncoming replay contacts have v_ego > 0 |
 | Fig. 1 run (sid 40): approach speed, stop short, replays crashing, impact speed, iota, H, share of suite harm | 46 km/h, 4.4 m, 37/100, ~47 km/h, 0.20, 0.07, 6% |
 | abstract pair: sid 55 (29 m, 2.2 s → 23/100 crash at 44 km/h) vs sid 16 (5.4 m, 0.4 s → 0/100) | as stated |
 | GPU-hours of the reference campaigns | 800 and 1,400 |
@@ -35,7 +35,7 @@ reproduces the stored scores to floating-point precision on scikit-learn 1.8).
 | minimum time-to-collision | .801 / .417; .881 / .609 |
 | minimum clearance | .820 / .498; .878 / .704 |
 | realized impact speed | .721 / .481; .867 / .560 |
-| best of 35 CriMe measures | .827 / .646; .908 / .666 (the paper prints .828 for the openpilot APFD_H; the stored value is 0.8267) |
+| best of 35 CriMe measures | .827 / .646; .908 / .666 |
 | field tier | .864 [.76,.94] / .729 [.59,.85]; .913 [.88,.93] / .790 [.69,.86] |
 | + escalation, 15% at 3 replays (1.45×) | .864 / .748 (openpilot) |
 | ablation: no replay corpus | .787 ± .04 / .668 ± .05; .885 ± .02 / .755 ± .02 (`rq1_ablations.py corpus`) |
@@ -70,7 +70,7 @@ Output: `results/rq1/calibration.json`.
 | claim | paper |
 |---|---|
 | no sharing at all (150 references only): Δr_s | −0.074; −0.088, negative in all ten repeats |
-| sharing across the k executions once replays are present | +0.013; 0.000 (the paper prints +0.012; stored 0.7295 − 0.7165 = 0.0131) |
+| sharing across the k executions once replays are present | +0.013; 0.000 |
 | dropping crashed replay rows | −0.028 (TransFuser) |
 | at 150 references TransFuser falls to the best single-run baseline | .692 vs clearance .704 |
 | binary target vs harm target, same estimator | .482 / .553 vs .730 / .780; paired −.248 ± .034, −.227 ± .020 |
@@ -125,8 +125,8 @@ see `data/README.md`; every number is identical).
 | references with H > 0 at α = 0.5 / 1 / 2 | 14 / 18 / 23%; 55 / 61 / 75% |
 | openpilot mean H; TransFuser median H | .0073 / .0078 / .0150; .0002 / .0004 / .0010 |
 | oracle r_s vs canonical labels at 0.5 / 1 / 2 | .60 / .70 / .63; .72 / .79 / .76 |
-| TransFuser paired per-reference harm, α = 2 vs 1: rises vs falls | 82 vs 30, Wilcoxon p = 2.7 × 10⁻⁵ (the paper's bound p < 10⁻⁵ is not met on any scale pair; p < 10⁻⁴ holds) |
-| cost of halving vs doubling | −0.096 vs −0.062; −0.070 vs −0.035 (the paper prints −0.095; stored −0.0956) |
+| TransFuser paired per-reference harm, α = 2 vs 1: rises vs falls | 82 vs 30, Wilcoxon p < 10⁻⁴ (p = 2.7 × 10⁻⁵) |
+| cost of halving vs doubling | −0.096 vs −0.062; −0.070 vs −0.035 |
 
 Stored: `results/rq3/<subject>_kernel_oracle_scores.npz`. Output: `results/rq3/table3.json`.
 
@@ -151,7 +151,7 @@ re-distilling the tier under each curve at a reduced protocol,
 | zero-shot coverage at a claimed 90% | 78%; 91% (the TransFuser oracle's foreign interval is 2.5× its native out-of-fold width) |
 | member disagreement into the crash-rich world; foreign runs above the native escalation threshold | 16×; 81% |
 | re-anchoring with n = 25 local labels | 96.8% ± 4.5; 97.5% ± 2.8 |
-| M = 30 labels vs M = 100: every re-anchoring point moves by at most 1.0 coverage point (max |Δ| 0.010 at n = 100, TransFuser→openpilot); n = 25 × M = 30 = 750 replays = 5% of a campaign | the paper says "unchanged to three decimals", which held for the previous estimator generation, not for the shipped tier |
+| M = 30 labels vs M = 100: every re-anchoring point moves by at most 1.0 coverage point (max |Δ| 0.010 at n = 100, TransFuser→openpilot); n = 25 × M = 30 = 750 replays = 5% of a campaign | as stated |
 
 Output: `results/rq4/portability_rerun.json`, `results/rq4/fig3_reanchoring.csv`.
 
@@ -198,19 +198,13 @@ Every script above was run while assembling this package (scikit-learn
   rebuilding `data/` from the raw traces reproduces every derived file
   to 1 ulp.
 
-### Remaining paper-text deviations (second pass, 2026-09-13)
+### Second pass (2026-09-13)
 
-Found by re-running every script above against the revised PDF; none
-changes a conclusion. Values the package produces are authoritative.
-
-| where | paper | package | note |
-|---|---|---|---|
-| Fig. 3 caption | intervals 2.2× over-wide | 2.5× (0.0562 / 0.0226) | 2.2× used the previous readout's native width |
-| Sec. 5.4 | Wilcoxon p < 10⁻⁵ (82 vs 30) | p = 2.7 × 10⁻⁵ | the bound came from a different scale pair in an earlier draft; p < 10⁻⁴ holds |
-| Sec. 5.5 | M = 30 labels: every point unchanged to three decimals | max change 1.0 coverage point | previous-estimator claim |
-| Sec. 5.3 | verdict "ties 94% of the pairs" | 94% of runs share a value; 53% of pairs tie | wording |
-| Table 1 | best CriMe APFD_H .828 (openpilot) | .827 | rounding |
-| Sec. 5.2 | sharing across k executions +0.012 | +0.013 | rounding |
-| Sec. 5.4 | halving cost −0.095 | −0.096 | rounding |
-| Sec. 5.2 | replay corpus worth +0.035 (TransFuser) | +0.036 (0.0355) | rounding |
-| footnote 1 | 99% of oncoming contacts ego moving | 99.7% | truncation |
+After the first revision, every script was re-run against the revised PDF
+and nine further text items were found (Fig. 3 width 2.2× → 2.5×; the
+Wilcoxon bound 10⁻⁵ → 10⁻⁴; "unchanged to three decimals" → "at most one
+coverage point" for the M = 30 re-anchoring; the verdict's 94% tie figure
+restated as 29 of 31 runs without a distinct value; and five third-decimal
+roundings: .827, +0.013, +0.036, −0.096, 99.7%). All nine were applied to
+the paper the same day; the tables above quote the corrected values, and
+no deviation between the paper and this package remains.
