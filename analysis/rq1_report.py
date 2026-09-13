@@ -47,7 +47,7 @@ PAPER = {
     "openpilot": {
         "field tier": (.864, .729), "binary verdict": (.714, .481), "min TTC": (.801, .417),
         "min clearance": (.820, .498), "realized impact speed": (.721, .481),
-        "best CriMe": (.828, .646), "Tier-1, 1 replay": (.744, .610),
+        "best CriMe": (.827, .646), "Tier-1, 1 replay": (.744, .610),
         "Tier-1, 3 replays": (.865, .782), "true harm (M=100)": (.954, 1.0),
         "rho_nc": .68, "ties_binary": .63, "ties_ttc": .36, "ties_field": .08,
         "esc10": .737, "esc15": .748},

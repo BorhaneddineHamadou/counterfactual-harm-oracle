@@ -116,7 +116,7 @@ def main():
                 f"{t} {100 * v:.0f}%" for t, v in d["harm_share_by_template"].items())
                   + "   [paper oncoming 89%]")
             print(f"  oncoming replay contacts with the ego still moving: "
-                  f"{100 * d['oncoming_replay_contacts_ego_moving']:.0f}% of "
+                  f"{100 * d['oncoming_replay_contacts_ego_moving']:.1f}% of "
                   f"{d['oncoming_replay_contacts']}   [paper 99%]")
         print(f"  run-0 verdict collisions {d['run0_collisions']}, scenarios crashing again in runs 1-4 "
               f"{d['scenarios_crashing_again']}, held-out executions {d['held_out_runs']} "
