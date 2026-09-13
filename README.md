@@ -13,6 +13,7 @@ the versioned configurations and seeded suites, the derived campaign
 record of both reference campaigns (150 labelled references and 15,000
 replays per subject), and one script per result in the paper. Every number
 in the paper recomputes from `data/` on a CPU; the raw simulation traces
+(Zenodo, DOI [10.5281/zenodo.22736471](https://doi.org/10.5281/zenodo.22736471))
 and the GPU campaigns are documented separately (`docs/TRACES.md`,
 `docs/CAMPAIGN.md`).
 
