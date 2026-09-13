@@ -2,13 +2,13 @@
 
 Every analysis in this repository runs from the derived record in `data/`
 (about 50 MB). The raw traces behind it, one `.npz` per execution, are
-larger (openpilot ~380 MB, TransFuser ~630 MB) and are distributed as
-release tarballs rather than in git:
+larger (openpilot 278 MB, TransFuser 581 MB) and are distributed as
+archived tarballs rather than in git:
 
-| tarball | contents |
-|---|---|
-| `counterfactual-harm-oracle-traces-openpilot.tar` | 750 nominal + 15,000 reference replays + 2 × 6,000 rescaled-kernel replays |
-| `counterfactual-harm-oracle-traces-transfuser.tar` | 750 nominal + 15,000 reference replays + 2 × 3,000 rescaled-kernel replays |
+| tarball | contents | sha256 |
+|---|---|---|
+| `counterfactual-harm-oracle-traces-openpilot.tar` | 750 nominal + 15,000 reference replays + 2 × 6,000 rescaled-kernel replays (27,750 traces) | `ba92f88083510d858ee20c69552d1200c284f488026641368e1bb04ff693206d` |
+| `counterfactual-harm-oracle-traces-transfuser.tar` | 750 nominal + 15,000 reference replays + 2 × 3,000 rescaled-kernel replays (21,750 traces) | `b535ea82cb31d8d4fc3c9a28ce2b842a71b330ff59383a5c4c6c038df82e902f` |
 
 Unpack into `data/<subject>/traces/` (`tools/fetch_traces.sh` does this
 given `TRACES_URL`), then `campaign/build_features.py <subject>`

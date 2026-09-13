@@ -24,11 +24,13 @@ differences (field tier minus a baseline) use 4000 resamples, each also
 drawing one CV repeat of the field tier (the per-repeat convention of the
 paper's paired tests; its point estimates use the repeat-averaged score).
 
-Held-out runs: by default the runs the paper's analysis used (599 on
-openpilot, 600 on TransFuser; `hold_paper`); --all-runs uses all 600.
+Held-out runs: all 600 per subject (runs 1-4 of the 150 scenarios), as in
+the paper. --exclude-reexecuted drops the one openpilot run (s50_r2) that
+was re-executed by a top-up job, the 599-run subset an earlier draft used;
+every reported number is identical on both.
 
-Usage:  python analysis/rq2_predictive_validity.py [--all-runs] [--nboot 2000]
-Output: results/rq2/table2.json  (results/rq2/table2_all_runs.json)
+Usage:  python analysis/rq2_predictive_validity.py [--exclude-reexecuted] [--nboot 2000]
+Output: results/rq2/table2.json  (results/rq2/table2_exclude_reexecuted.json)
 """
 from __future__ import annotations
 
@@ -215,15 +217,16 @@ def run_subject(subject, all_runs, nboot):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--all-runs", action="store_true",
-                    help="use all 600 held-out runs (paper: 599 on openpilot)")
+    ap.add_argument("--exclude-reexecuted", action="store_true",
+                    help="drop the re-executed openpilot run s50_r2 (599-run subset of an earlier draft)")
     ap.add_argument("--nboot", type=int, default=2000)
     a = ap.parse_args()
-    out = {"held_out": "all 600 runs" if a.all_runs else "the runs the paper used (599/600)",
+    out = {"held_out": "599/600 (re-executed run excluded)" if a.exclude_reexecuted else "all 600 runs per subject",
+
            "nboot": a.nboot, "seed": SEED}
     for s in C.SUBJECTS:
-        out[s] = run_subject(s, a.all_runs, a.nboot)
-    fp = C.results_path("rq2", "table2_all_runs.json" if a.all_runs else "table2.json")
+        out[s] = run_subject(s, not a.exclude_reexecuted, a.nboot)
+    fp = C.results_path("rq2", "table2_exclude_reexecuted.json" if a.exclude_reexecuted else "table2.json")
     json.dump(out, open(fp, "w"), indent=1, default=float)
     print(f"\nsaved {fp}")
 

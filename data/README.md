@@ -42,8 +42,9 @@ impact_speed_ms, ttc_min_s, min_clearance_m, speed_at_crit_ms,
 ego_vmax_ms, t_crit_s, n_steps, in_paper_heldout`. Runs 1–4 are the
 held-out criterion of RQ2. `in_paper_heldout` is 0 for one openpilot run
 (s50_r2) whose first attempt crashed the bridge and which was re-executed
-by a top-up job; the paper's driver read only the main results files, so
-its count is 599, and the analysis reports both.
+by a top-up job. The paper's criterion is all 600 runs; the RQ2 script's
+`--exclude-reexecuted` reproduces the 599-run subset an earlier draft
+used (every reported number is identical on both).
 
 ## `<subject>/replay_outcomes.npz`
 
@@ -83,5 +84,5 @@ criticality instant), computed by `campaign/run_crime_baselines.py`;
 - `y` is in the declared severity unit of `iota`; orderings are what the
   paper reports, and Sec. 5.4 re-scores them under fourteen other curves.
 - Labels are Monte-Carlo estimates: mean `se` 0.0011 (openpilot) and
-  0.0003 (TransFuser), 6.5× below field-tier model error; split-half
-  reliability 0.98.
+  0.0003 (TransFuser), 6.0× and 9.2× below field-tier model error;
+  split-half reliability 0.98 and 0.96.

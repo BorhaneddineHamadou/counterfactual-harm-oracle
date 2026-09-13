@@ -16,9 +16,9 @@ Keys of S (n = 150 references, sid order):
   inj_by_ref             {row: injuries in replay order} (escalation)
   nominal_runs           list of dict rows of nominal_runs.csv (750)
   hold                   {sid: [(contact, impact_speed)]} for runs 1..4 (600)
-  hold_paper             same, restricted to the runs the paper's analysis saw
-                         (599 on openpilot: run s50_r2 was re-executed by a
-                         top-up job whose record the original driver did not read)
+  hold_paper             same, without the one openpilot run (s50_r2) that was
+                         re-executed by a top-up job (the 599-run subset an
+                         earlier draft of the paper used; all numbers identical)
   n_seeds, p_in_tail, tau_rule   the subject's field-tier settings
 """
 from __future__ import annotations
@@ -97,7 +97,7 @@ def load_subject(subject):
 
     nominal_runs = read_csv(data_path(subject, "nominal_runs.csv"))
     hold = {int(s): [] for s in sids}
-    hold_paper = {int(s): [] for s in sids}       # the 599/600 runs the paper used
+    hold_paper = {int(s): [] for s in sids}       # 599/600: re-executed run excluded
     for r in nominal_runs:
         if r["run"] != 0:
             hold[r["sid"]].append((bool(r["contact"]), float(r["impact_speed_ms"])))

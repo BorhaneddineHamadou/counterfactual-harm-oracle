@@ -29,7 +29,15 @@
       0.9999999999999999,
       1.0
      ],
-     "pair_flip_frac": 0.0
+     "pair_flip_frac": 0.0,
+     "rho_field_tier": 0.7294979230973747,
+     "rho_scalars": {
+      "min TTC": 0.41686888497297536,
+      "min clearance": 0.4983162845767807,
+      "realized impact speed": 0.48126641727949576
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23118163852059403
     },
     "Kusano-Gabler MAIS2+, belted": {
      "source": "kusano2012",
@@ -41,7 +49,15 @@
       0.9989896379600077,
       1.0
      ],
-     "pair_flip_frac": 0.0028993147074327886
+     "pair_flip_frac": 0.0028993147074327886,
+     "rho_field_tier": 0.7265621661965702,
+     "rho_scalars": {
+      "min TTC": 0.41632062684089377,
+      "min clearance": 0.49554362403645574,
+      "realized impact speed": 0.47897224757859225
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23101854216011447
     },
     "Kusano-Gabler MAIS2+, unbelted": {
      "source": "kusano2012",
@@ -53,7 +69,15 @@
       0.998850853550688,
       0.999986475663369
      ],
-     "pair_flip_frac": 0.0036900369003690036
+     "pair_flip_frac": 0.0036900369003690036,
+     "rho_field_tier": 0.7319393153836444,
+     "rho_scalars": {
+      "min TTC": 0.41776726834782196,
+      "min clearance": 0.5010837037928327,
+      "realized impact speed": 0.4836034686570518
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.2308556115908117
     },
     "NHTSA 813219 all, MAIS2+": {
      "source": "nhtsa813219",
@@ -65,7 +89,15 @@
       0.998832206349082,
       0.9999735433393339
      ],
-     "pair_flip_frac": 0.003953610964681075
+     "pair_flip_frac": 0.003953610964681075,
+     "rho_field_tier": 0.7321606359477075,
+     "rho_scalars": {
+      "min TTC": 0.4178378362262087,
+      "min clearance": 0.5011728063054708,
+      "realized impact speed": 0.48439677967512107
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23098782964223674
     },
     "NHTSA 813219 all, MAIS3+": {
      "source": "nhtsa813219",
@@ -77,7 +109,15 @@
       0.9984730725614153,
       0.9999999999999999
      ],
-     "pair_flip_frac": 0.003953610964681075
+     "pair_flip_frac": 0.003953610964681075,
+     "rho_field_tier": 0.7256670688240404,
+     "rho_scalars": {
+      "min TTC": 0.415609519758689,
+      "min clearance": 0.4943695673993428,
+      "realized impact speed": 0.47576684224882515
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23129750142469763
     },
     "NHTSA 813219 all, fatality": {
      "source": "nhtsa813219",
@@ -89,7 +129,15 @@
       0.9942398322297609,
       0.9999909537066112
      ],
-     "pair_flip_frac": 0.00922509225092251
+     "pair_flip_frac": 0.00922509225092251,
+     "rho_field_tier": 0.7216637409017302,
+     "rho_scalars": {
+      "min TTC": 0.415142686101669,
+      "min clearance": 0.49030754108790275,
+      "realized impact speed": 0.466590163445211
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.2313561998138275
     },
     "NHTSA 813219 rear_end, MAIS2+": {
      "source": "nhtsa813219",
@@ -101,7 +149,15 @@
       0.9992169665806675,
       1.0
      ],
-     "pair_flip_frac": 0.0023721665788086453
+     "pair_flip_frac": 0.0023721665788086453,
+     "rho_field_tier": 0.7274850768549825,
+     "rho_scalars": {
+      "min TTC": 0.41650247483519803,
+      "min clearance": 0.49661809551238506,
+      "realized impact speed": 0.4804731062614263
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23086698134259748
     },
     "NHTSA 813219 rear_end, MAIS3+": {
      "source": "nhtsa813219",
@@ -113,7 +169,15 @@
       0.9958605380293677,
       0.9999457705889941
      ],
-     "pair_flip_frac": 0.008434370057986295
+     "pair_flip_frac": 0.008434370057986295,
+     "rho_field_tier": 0.7225324244590707,
+     "rho_scalars": {
+      "min TTC": 0.41647533334351083,
+      "min clearance": 0.4919166276396603,
+      "realized impact speed": 0.47165020129019447
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.2306157968194104
     },
     "NHTSA 813219 rear_end, fatality": {
      "source": "nhtsa813219",
@@ -125,7 +189,15 @@
       0.993464187859571,
       0.9996894648038008
      ],
-     "pair_flip_frac": 0.013442277279915656
+     "pair_flip_frac": 0.013442277279915656,
+     "rho_field_tier": 0.7205498372929989,
+     "rho_scalars": {
+      "min TTC": 0.41654047292356017,
+      "min clearance": 0.49065870981418214,
+      "realized impact speed": 0.46441391835510154
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.2298911274788168
     },
     "NHTSA 813219 frontal, MAIS2+": {
      "source": "nhtsa813219",
@@ -137,7 +209,15 @@
       0.998832206349082,
       0.9999735433393339
      ],
-     "pair_flip_frac": 0.003953610964681075
+     "pair_flip_frac": 0.003953610964681075,
+     "rho_field_tier": 0.7321606359477075,
+     "rho_scalars": {
+      "min TTC": 0.4178378362262087,
+      "min clearance": 0.5011728063054708,
+      "realized impact speed": 0.48439677967512107
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23098782964223674
     },
     "NHTSA 813219 frontal, MAIS3+": {
      "source": "nhtsa813219",
@@ -149,7 +229,15 @@
       0.9984730725614153,
       0.9999999999999999
      ],
-     "pair_flip_frac": 0.003953610964681075
+     "pair_flip_frac": 0.003953610964681075,
+     "rho_field_tier": 0.7256670688240404,
+     "rho_scalars": {
+      "min TTC": 0.415609519758689,
+      "min clearance": 0.4943695673993428,
+      "realized impact speed": 0.47576684224882515
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23129750142469763
     },
     "NHTSA 813219 frontal, fatality": {
      "source": "nhtsa813219",
@@ -161,7 +249,15 @@
       0.9941330092907679,
       0.9999999999999999
      ],
-     "pair_flip_frac": 0.00922509225092251
+     "pair_flip_frac": 0.00922509225092251,
+     "rho_field_tier": 0.7220557059332748,
+     "rho_scalars": {
+      "min TTC": 0.4153598180351667,
+      "min clearance": 0.49067967511127336,
+      "realized impact speed": 0.4665687226068848
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23137603082200148
     },
     "Kusano-Gabler MAIS2+, dv=s/2": {
      "source": "kusano2012+half",
@@ -173,7 +269,15 @@
       0.9990162516189314,
       0.9999366748435259
      ],
-     "pair_flip_frac": 0.004744333157617291
+     "pair_flip_frac": 0.004744333157617291,
+     "rho_field_tier": 0.7308983311854795,
+     "rho_scalars": {
+      "min TTC": 0.41524582377008035,
+      "min clearance": 0.4982638713340525,
+      "realized impact speed": 0.48421453254934843
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23263445985142706
     },
     "NHTSA 813219 all, MAIS3+, dv=s/2": {
      "source": "nhtsa813219+half",
@@ -185,7 +289,15 @@
       0.9986809166944378,
       0.9999214171285599
      ],
-     "pair_flip_frac": 0.005535055350553505
+     "pair_flip_frac": 0.005535055350553505,
+     "rho_field_tier": 0.7300055552041087,
+     "rho_scalars": {
+      "min TTC": 0.41440986582611444,
+      "min clearance": 0.4966547847822949,
+      "realized impact speed": 0.48346410320793143
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.2333507704218138
     },
     "Joksch fourth power": {
      "source": "joksch1993",
@@ -197,7 +309,15 @@
       0.9953502869792423,
       0.9999004855063275
      ],
-     "pair_flip_frac": 0.009488666315234581
+     "pair_flip_frac": 0.009488666315234581,
+     "rho_field_tier": 0.722840926550889,
+     "rho_scalars": {
+      "min TTC": 0.415978644045635,
+      "min clearance": 0.49196904088238863,
+      "realized impact speed": 0.47081400859547257
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.23087188566850042
     }
    },
    "summary": {
@@ -207,7 +327,11 @@
     "min_rho_curve": "NHTSA 813219 rear_end, fatality",
     "max_pair_flip_frac": 0.013442277279915656,
     "max_pair_flip_curve": "NHTSA 813219 rear_end, fatality",
-    "max_pair_flip_frac_excluding_joksch": 0.013442277279915656
+    "max_pair_flip_frac_excluding_joksch": 0.013442277279915656,
+    "rho_lead_range": [
+     0.2298911274788168,
+     0.2333507704218138
+    ]
    }
   },
   "transfuser": {
@@ -222,7 +346,15 @@
       0.9999999999999998,
       1.0
      ],
-     "pair_flip_frac": 0.0
+     "pair_flip_frac": 0.0,
+     "rho_field_tier": 0.7902536763182886,
+     "rho_scalars": {
+      "min TTC": 0.609493677381102,
+      "min clearance": 0.7036049111930951,
+      "realized impact speed": 0.5599086036569022
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08664876512519348
     },
     "Kusano-Gabler MAIS2+, belted": {
      "source": "kusano2012",
@@ -234,7 +366,15 @@
       0.9999453706098798,
       1.0
      ],
-     "pair_flip_frac": 9.861932938856015e-05
+     "pair_flip_frac": 9.861932938856015e-05,
+     "rho_field_tier": 0.7900350956426467,
+     "rho_scalars": {
+      "min TTC": 0.6095696170608047,
+      "min clearance": 0.7034459042293342,
+      "realized impact speed": 0.5599086036569022
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08658919141331256
     },
     "Kusano-Gabler MAIS2+, unbelted": {
      "source": "kusano2012",
@@ -246,7 +386,15 @@
       0.9999451805203176,
       1.0
      ],
-     "pair_flip_frac": 9.861932938856015e-05
+     "pair_flip_frac": 9.861932938856015e-05,
+     "rho_field_tier": 0.7902031650880014,
+     "rho_scalars": {
+      "min TTC": 0.609493677381102,
+      "min clearance": 0.7036049111930951,
+      "realized impact speed": 0.5598428154351274
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08659825389490627
     },
     "NHTSA 813219 all, MAIS2+": {
      "source": "nhtsa813219",
@@ -258,7 +406,15 @@
       0.9992634679023705,
       0.9999255994575159
      ],
-     "pair_flip_frac": 0.0029585798816568047
+     "pair_flip_frac": 0.0029585798816568047,
+     "rho_field_tier": 0.7904380727097938,
+     "rho_scalars": {
+      "min TTC": 0.608927745958556,
+      "min clearance": 0.7039446078884023,
+      "realized impact speed": 0.5597949694556549
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08649346482139153
     },
     "NHTSA 813219 all, MAIS3+": {
      "source": "nhtsa813219",
@@ -270,7 +426,15 @@
       0.9997135416286921,
       0.9999926309525784
      ],
-     "pair_flip_frac": 0.0010848126232741618
+     "pair_flip_frac": 0.0010848126232741618,
+     "rho_field_tier": 0.7903167419019546,
+     "rho_scalars": {
+      "min TTC": 0.6107412578333599,
+      "min clearance": 0.7035091456353755,
+      "realized impact speed": 0.5603990249464963
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08680759626657908
     },
     "NHTSA 813219 all, fatality": {
      "source": "nhtsa813219",
@@ -282,7 +446,15 @@
       0.999900511445993,
       1.0
      ],
-     "pair_flip_frac": 0.0002958579881656805
+     "pair_flip_frac": 0.0002958579881656805,
+     "rho_field_tier": 0.7902864758415228,
+     "rho_scalars": {
+      "min TTC": 0.6098661434291675,
+      "min clearance": 0.7037440422863859,
+      "realized impact speed": 0.5603990249464963
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08654243355513691
     },
     "NHTSA 813219 rear_end, MAIS2+": {
      "source": "nhtsa813219",
@@ -294,7 +466,15 @@
       0.9993847676629868,
       0.9999476405979156
      ],
-     "pair_flip_frac": 0.002465483234714004
+     "pair_flip_frac": 0.002465483234714004,
+     "rho_field_tier": 0.7905455102046116,
+     "rho_scalars": {
+      "min TTC": 0.6092513936410983,
+      "min clearance": 0.7040692838031694,
+      "realized impact speed": 0.5602794099978148
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08647622640144226
     },
     "NHTSA 813219 rear_end, MAIS3+": {
      "source": "nhtsa813219",
@@ -306,7 +486,15 @@
       0.9983736492712445,
       0.9997847829151744
      ],
-     "pair_flip_frac": 0.005522682445759369
+     "pair_flip_frac": 0.005522682445759369,
+     "rho_field_tier": 0.788345928601102,
+     "rho_scalars": {
+      "min TTC": 0.6121515661706949,
+      "min clearance": 0.7015576965346741,
+      "realized impact speed": 0.5614217327577231
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08678823206642783
     },
     "NHTSA 813219 rear_end, fatality": {
      "source": "nhtsa813219",
@@ -318,7 +506,15 @@
       0.9890620706945511,
       0.9986306551173074
      ],
-     "pair_flip_frac": 0.01735700197238659
+     "pair_flip_frac": 0.01735700197238659,
+     "rho_field_tier": 0.7816954656610419,
+     "rho_scalars": {
+      "min TTC": 0.6159539744186634,
+      "min clearance": 0.6949986592795392,
+      "realized impact speed": 0.5618583273204105
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08669680638150268
     },
     "NHTSA 813219 frontal, MAIS2+": {
      "source": "nhtsa813219",
@@ -330,7 +526,15 @@
       0.9989910351758162,
       0.999869510728848
      ],
-     "pair_flip_frac": 0.004043392504930967
+     "pair_flip_frac": 0.004043392504930967,
+     "rho_field_tier": 0.7913783318418838,
+     "rho_scalars": {
+      "min TTC": 0.6090308069524383,
+      "min clearance": 0.7045011322615653,
+      "realized impact speed": 0.5597949694556549
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08687719958031848
     },
     "NHTSA 813219 frontal, MAIS3+": {
      "source": "nhtsa813219",
@@ -342,7 +546,15 @@
       0.9998694366842478,
       1.0
      ],
-     "pair_flip_frac": 0.0004930966469428008
+     "pair_flip_frac": 0.0004930966469428008,
+     "rho_field_tier": 0.7902544861498099,
+     "rho_scalars": {
+      "min TTC": 0.6099710125106615,
+      "min clearance": 0.7035326353004765,
+      "realized impact speed": 0.5599086036569022
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08672185084933337
     },
     "NHTSA 813219 frontal, fatality": {
      "source": "nhtsa813219",
@@ -354,7 +566,15 @@
       0.9998681813242773,
       1.0
      ],
-     "pair_flip_frac": 0.0004930966469428008
+     "pair_flip_frac": 0.0004930966469428008,
+     "rho_field_tier": 0.7903398975621743,
+     "rho_scalars": {
+      "min TTC": 0.6096202435139397,
+      "min clearance": 0.7039409940937714,
+      "realized impact speed": 0.5598428154351274
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08639890346840284
     },
     "Kusano-Gabler MAIS2+, dv=s/2": {
      "source": "kusano2012+half",
@@ -366,7 +586,15 @@
       0.989033835894627,
       0.9973706539302383
      ],
-     "pair_flip_frac": 0.023668639053254437
+     "pair_flip_frac": 0.023668639053254437,
+     "rho_field_tier": 0.7913104554489963,
+     "rho_scalars": {
+      "min TTC": 0.6068502532924049,
+      "min clearance": 0.7098929138509104,
+      "realized impact speed": 0.5550103715083953
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.0814175415980859
     },
     "NHTSA 813219 all, MAIS3+, dv=s/2": {
      "source": "nhtsa813219+half",
@@ -378,7 +606,15 @@
       0.9895111943113925,
       0.997481609450877
      ],
-     "pair_flip_frac": 0.023175542406311637
+     "pair_flip_frac": 0.023175542406311637,
+     "rho_field_tier": 0.7910787556808803,
+     "rho_scalars": {
+      "min TTC": 0.6068177077153895,
+      "min clearance": 0.7092857963529146,
+      "realized impact speed": 0.5550163522558293
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.08179295932796571
     },
     "Joksch fourth power": {
      "source": "joksch1993",
@@ -390,7 +626,15 @@
       0.8620652403302943,
       0.9620505325551912
      ],
-     "pair_flip_frac": 0.09418145956607495
+     "pair_flip_frac": 0.09418145956607495,
+     "rho_field_tier": 0.7480872428493887,
+     "rho_scalars": {
+      "min TTC": 0.6209750337170983,
+      "min clearance": 0.6559678703681974,
+      "realized impact speed": 0.5139884248580783
+     },
+     "best_scalar": "min clearance",
+     "rho_lead_over_best_scalar": 0.09211937248119129
     }
    },
    "summary": {
@@ -400,7 +644,11 @@
     "min_rho_curve": "Joksch fourth power",
     "max_pair_flip_frac": 0.09418145956607495,
     "max_pair_flip_curve": "Joksch fourth power",
-    "max_pair_flip_frac_excluding_joksch": 0.023668639053254437
+    "max_pair_flip_frac_excluding_joksch": 0.023668639053254437,
+    "rho_lead_range": [
+     0.0814175415980859,
+     0.09211937248119129
+    ]
    }
   }
  }

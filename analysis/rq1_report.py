@@ -13,9 +13,9 @@ Reproduces, per subject:
     over the verdict +.153 [.039,.281] / +.073 [.032,.130]; TransFuser APFD
     gaps over TTC +.032 [.007,.053] and clearance +.034 [.008,.061]);
   * r_s on the non-collision runs (0.68 / 0.70), per template, and on
-    TransFuser with the oncoming-drift template excluded (0.71 +- 0.03);
+    TransFuser with the oncoming-drift template excluded (0.73 +- 0.03);
   * tie statistics on reference pairs whose true harms differ by >10x
-    (binary verdict 63% on openpilot; TTC<1.5 s flag 36%; field tier 8% / 2%);
+    (binary verdict 63% / 67%; TTC<1.5 s flag 36% on openpilot; field tier 8% / 2%);
   * escalation: 10% and 15% of each test fold at 3 replays (openpilot
     r_s 0.737 at 1.3x, 0.748 at 1.45x).
 
@@ -54,9 +54,9 @@ PAPER = {
     "transfuser": {
         "field tier": (.913, .790), "binary verdict": (.841, .555), "min TTC": (.881, .609),
         "min clearance": (.878, .704), "realized impact speed": (.867, .560),
-        "best CriMe": (.884, .666), "Tier-1, 1 replay": (.877, .594),
+        "best CriMe": (.908, .666), "Tier-1, 1 replay": (.877, .594),
         "Tier-1, 3 replays": (.913, .710), "true harm (M=100)": (.940, 1.0),
-        "rho_nc": .70, "ties_field": .02, "rho_no_oncoming": .71},
+        "rho_nc": .70, "ties_binary": .67, "ties_field": .02, "rho_no_oncoming": .73},
 }
 
 
@@ -161,15 +161,6 @@ def run(subject, nboot):
         res["field_tier"]["rho_excluding_oncoming"] = [float(np.mean(v)), float(np.std(v))]
         print(f"             r_s excluding oncoming_drift (n={int(mm.sum())}) "
               f"{np.mean(v):.2f} +- {np.std(v):.2f}   [paper {P['rho_no_oncoming']:.2f} +- 0.03]")
-        # the paper's footnote value was taken from the earlier rank-fusion
-        # composite (the one whose conformal calibration Sec. 5.2 reports);
-        # its out-of-fold scores are stored with the calibration run
-        cal = np.load(C.results_path("rq1", "transfuser_calibration.npz"))
-        if "oof_scores" in cal.files:
-            v35 = [rho(s[mm], y[mm]) for s in cal["oof_scores"]]
-            res["field_tier"]["rho_excluding_oncoming_rank4_composite"] = [float(np.mean(v35)), float(np.std(v35))]
-            print(f"             (same cut on the stored rank-fusion composite: {np.mean(v35):.2f} +- {np.std(v35):.2f},"
-                  f" the value the footnote quotes)")
     zt = [np.mean(s == 0) for s in oofs]
     print(f"             exact-zero predictions: {100 * np.mean(zt):.0f}% of runs")
 
@@ -221,9 +212,7 @@ def run(subject, nboot):
                        "field tier": tf_}
     print(f"  ties on the {len(i)} pairs whose true harms differ >10x: binary verdict "
           f"{100 * tb:.0f}%  TTC<1.5s flag {100 * tt:.0f}%  field tier {100 * tf_:.0f}%"
-          + (f"   [paper 63% / 36% / 8%]" if subject == "openpilot" else
-             "   [paper: field tier 2%; the paper's sentence attributes 2% to the verdict, "
-             "the verdict's own rate is the number printed here]"))
+          + (f"   [paper 63% / 36% / 8%]" if subject == "openpilot" else "   [paper 67% / -- / 2%]"))
 
     # ---- escalation (openpilot: p and tail were stored)
     if "p" in Z.files:

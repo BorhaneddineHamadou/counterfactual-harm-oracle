@@ -1,10 +1,10 @@
 {
- "held_out": "the runs the paper used (599/600)",
+ "held_out": "all 600 runs per subject",
  "nboot": 2000,
  "seed": 20260815,
  "openpilot": {
   "n_scenarios": 150,
-  "held_out_runs": 599,
+  "held_out_runs": 600,
   "scenarios_crashing_again": 23,
   "run0_collisions": 13,
   "passed": 137,

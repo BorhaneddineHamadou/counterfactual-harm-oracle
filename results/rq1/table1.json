@@ -234,10 +234,6 @@
    "rho_excluding_oncoming": [
     0.7334077598060188,
     0.026669267247680845
-   ],
-   "rho_excluding_oncoming_rank4_composite": [
-    0.710879971040236,
-    0.026368195995855062
    ]
   },
   "paired": {

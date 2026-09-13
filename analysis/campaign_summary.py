@@ -18,7 +18,7 @@ Reproduces:
   * the abstract's inversion pair: sid 55 (29 m, 2.2 s; 23/100 replays
     crash at 44 km/h) vs sid 16 (5.4 m, 0.4 s; 0/100);
   * RQ2 counts: run-0 verdict calls 13 / 21 collisions, 23 / 31 scenarios
-    crash at least once more in runs 1-4, 599 / 600 held-out executions;
+    crash at least once more in runs 1-4, 600 held-out executions per subject;
   * reference-campaign cost, 800 and 1,400 GPU-hours (configs/measure.json).
 
 Usage:  python analysis/campaign_summary.py
@@ -82,7 +82,7 @@ def main():
             "run0_collisions": int((~S["NC"]).sum()),
             "scenarios_crashing_again": int(sum(any(c for c, _ in v) for v in S["hold"].values())),
             "held_out_runs": int(sum(len(v) for v in S["hold"].values())),
-            "held_out_runs_in_paper": int(sum(len(v) for v in S["hold_paper"].values())),
+            "held_out_runs_excl_reexecuted": int(sum(len(v) for v in S["hold_paper"].values())),
             "gpu_hours_reference_campaign": cfg["subjects"][subject]["gpu_hours_reference_campaign"],
         }
         if subject == "transfuser":
@@ -120,8 +120,8 @@ def main():
                   f"{d['oncoming_replay_contacts']}   [paper 99%]")
         print(f"  run-0 verdict collisions {d['run0_collisions']}, scenarios crashing again in runs 1-4 "
               f"{d['scenarios_crashing_again']}, held-out executions {d['held_out_runs']} "
-              f"(paper's subset {d['held_out_runs_in_paper']})   [paper "
-              f"{'13, 23, 599' if subject == 'openpilot' else '21, 31, 600'}]")
+              f"({d['held_out_runs_excl_reexecuted']} without the re-executed run)   [paper "
+              f"{'13, 23, 600' if subject == 'openpilot' else '21, 31, 600'}]")
         print(f"  reference campaign: {d['gpu_hours_reference_campaign']} GPU-hours   [paper "
               f"{'800' if subject == 'openpilot' else '1,400'}]")
         if subject == "openpilot":

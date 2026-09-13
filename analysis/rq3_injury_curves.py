@@ -8,12 +8,14 @@ under the 14 published alternatives to the shipped Kusano-Gabler MAIS2+
 logistic (belt states restored; nine NHTSA 2010-2015 NASS-CDS logistics;
 the equal-mass dv = s/2 convention on two of them; Joksch's fourth-power
 rule) and reports how far the reference ordering moves: mean-harm span,
-Spearman against the shipped curve, share of comparable pairs that reorder.
+Spearman against the shipped curve, share of comparable pairs that reorder,
+and the stored field tier's r_s lead over the best telemetry scalar (min
+TTC, min clearance, realized impact speed) when all are scored against each
+curve's labels (the paper's "+0.23 / +0.08 to +0.09").
 
 Stage 2 (--sweep) re-distills the field tier under each curve's labels and
-reports its harm-weighted APFD lead over the best telemetry scalar (min TTC,
-min clearance, realized impact speed, each scored against the same
-relabelled truth). Retraining 14 oracles is expensive; by default the sweep
+reports its harm-weighted APFD lead over the same scalars, a supplementary
+check not reported in the paper. Retraining 14 oracles is expensive; by default the sweep
 uses 3 CV repeats and 3 seeds per readout (the shipped protocol is 10
 repeats and 6 seeds on openpilot), which is documented in the output.
 
@@ -90,20 +92,32 @@ def stage1():
         H0 = harm_by_reference(S, sid, contact, dv, lib[SHIPPED][0])
         assert np.abs(H0 - S["y"]).max() < 1e-9, "shipped curve must reproduce the labels"
         rows = {}
+        # the field tier's stored out-of-fold scores (Table 1) and the three
+        # telemetry scalars, re-scored against each curve's labels
+        oofs = np.load(C.results_path("rq1", f"{s}_field_tier_oof.npz"))["oofs"]
+        base = C.baselines(S)
+        scal = {k: v for k, v in base.items() if k != "binary verdict"}
         print(f"\n=== {S['label']}: {len(S['sids'])} references, {len(sid)} replays, "
               f"{int(contact.sum())} crashes; {len(alts)} published alternatives ===")
-        print(f"{'curve':40s} {'meanH':>8s} {'rho':>6s} {'tau':>6s} {'flip%':>6s}")
+        print(f"{'curve':40s} {'meanH':>8s} {'rho':>6s} {'tau':>6s} {'flip%':>6s} "
+              f"{'r_s ft':>7s} {'best scalar':>22s} {'lead':>7s}")
         for n in [SHIPPED] + alts:
             H = harm_by_reference(S, sid, contact, dv, lib[n][0])
             rho = spearmanr(H0, H).statistic if np.std(H) > 0 else np.nan
             tau = kendalltau(H0, H).statistic if np.std(H) > 0 else np.nan
             fl, cmp_ = pair_flips(H0, H)
+            r_ft = float(np.mean([spearmanr(o, H).statistic for o in oofs]))
+            r_sc = {k: float(spearmanr(v, H).statistic) for k, v in scal.items()}
+            best = max(r_sc, key=r_sc.get)
             rows[n] = {"source": lib[n][2], "mean_H": float(H.mean()),
                        "nonzero": int((H > 0).sum()), "rho_vs_shipped": float(rho),
                        "tau_vs_shipped": float(tau), "rho_ci": boot_rho(H0, H),
-                       "pair_flip_frac": fl / cmp_ if cmp_ else np.nan}
+                       "pair_flip_frac": fl / cmp_ if cmp_ else np.nan,
+                       "rho_field_tier": r_ft, "rho_scalars": r_sc, "best_scalar": best,
+                       "rho_lead_over_best_scalar": r_ft - r_sc[best]}
             print(f"{n[:40]:40s} {H.mean():8.5f} {rho:6.3f} {tau:6.3f} "
-                  f"{100 * fl / max(cmp_, 1):6.2f}")
+                  f"{100 * fl / max(cmp_, 1):6.2f} {r_ft:7.3f} {best:>22s} {r_ft - r_sc[best]:+7.3f}")
+        leads = [rows[n]["rho_lead_over_best_scalar"] for n in rows]
         means = [rows[n]["mean_H"] for n in alts]
         alt_rho = {n: rows[n]["rho_vs_shipped"] for n in alts}
         alt_flip = {n: rows[n]["pair_flip_frac"] for n in alts}
@@ -114,16 +128,19 @@ def stage1():
                 "max_pair_flip_frac": float(max(alt_flip.values())),
                 "max_pair_flip_curve": max(alt_flip, key=alt_flip.get),
                 "max_pair_flip_frac_excluding_joksch": float(max(
-                    v for n, v in alt_flip.items() if "Joksch" not in n))}
+                    v for n, v in alt_flip.items() if "Joksch" not in n)),
+                "rho_lead_range": [float(min(leads)), float(max(leads))]}
         print(f"  mean-harm span x{summ['mean_H_span_factor']:.0f}; min rho vs shipped "
               f"{summ['min_rho_vs_shipped']:.3f} ({worst}); max pair flips "
               f"{100*summ['max_pair_flip_frac']:.1f}% ({summ['max_pair_flip_curve']}), "
-              f"{100*summ['max_pair_flip_frac_excluding_joksch']:.1f}% without Joksch")
+              f"{100*summ['max_pair_flip_frac_excluding_joksch']:.1f}% without Joksch; "
+              f"r_s lead over the best scalar [{min(leads):+.3f}, {max(leads):+.3f}]")
         report["subjects"][s] = {"curves": rows, "summary": summ}
     fp = C.results_path("rq3", "injury_curves.json")
     json.dump(report, open(fp, "w"), indent=1, default=float)
     print(f"\nsaved {fp}\npaper: span x25 (openpilot) / x220 (TransFuser); "
-          "r_s >= 0.998 / >= 0.922; pairs reordering 1.3% / 9.4% (Joksch alone)")
+          "r_s >= 0.998 / >= 0.922; pairs reordering 1.3% / 9.4% (Joksch alone); "
+          "r_s lead over the best telemetry scalar +0.23 (openpilot), +0.08 to +0.09 (TransFuser)")
 
 
 # ------------------------------------------------------------------ sweep
@@ -178,7 +195,8 @@ def sweep(subject, reps, seeds):
     out["lead_range"] = [float(min(leads)), float(max(leads))]
     json.dump(out, open(fp, "w"), indent=1, default=float)
     print(f"lead over best telemetry scalar across {len(leads)} curves: "
-          f"[{min(leads):+.3f}, {max(leads):+.3f}]  (paper: +0.099 to +0.111)\nsaved {fp}")
+          f"[{min(leads):+.3f}, {max(leads):+.3f}]  (APFD_H, re-distilled at the reduced protocol; "
+          f"the paper reports the r_s lead of the stored tier, see stage 1)\nsaved {fp}")
 
 
 def main():

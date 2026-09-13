@@ -35,7 +35,7 @@ reproduces the stored scores to floating-point precision on scikit-learn 1.8).
 | minimum time-to-collision | .801 / .417; .881 / .609 |
 | minimum clearance | .820 / .498; .878 / .704 |
 | realized impact speed | .721 / .481; .867 / .560 |
-| best of 35 CriMe measures | .828 / .646; .884 / .666 |
+| best of 35 CriMe measures | .828 / .646; .908 / .666 |
 | field tier | .864 [.76,.94] / .729 [.59,.85]; .913 [.88,.93] / .790 [.69,.86] |
 | + escalation, 15% at 3 replays (1.45×) | .864 / .748 (openpilot) |
 | ablation: no replay corpus | .787 ± .04 / .668 ± .05; .885 ± .02 / .755 ± .02 (`rq1_ablations.py corpus`) |
@@ -44,22 +44,23 @@ reproduces the stored scores to floating-point precision on scikit-learn 1.8).
 | true harm, M = 100 (101×) | .954 / 1; .940 / 1 |
 
 Prose: r_s on non-collision runs 0.68 / 0.70; r_s excluding oncoming drift
-on TransFuser 0.71 ± 0.03; paired r_s margin over the best CriMe measure
+on TransFuser 0.73 ± 0.03; paired r_s margin over the best CriMe measure
 +.082 [−.098, .264] / +.124 [.011, .239]; APFD gap over the verdict
 +.153 [.039, .281] / +.073 [.032, .130]; TransFuser APFD gap over TTC
 +.032 [.007, .053] and clearance +.034 [.008, .061]; ties on pairs whose
-harms differ by more than 10×: verdict 63% (openpilot) and 2% (TransFuser),
-TTC flag 36%, field tier 8%; escalation 10% at 3 replays 0.737 (1.3×).
+harms differ by more than 10×: verdict 63% (openpilot) and 67% (TransFuser),
+TTC flag 36% (openpilot), field tier 8% and 2%; escalation 10% at 3 replays
+0.737 (1.3×).
 Output: `results/rq1/table1.json`.
 
 ## RQ1, calibration — `python analysis/rq1_calibration.py` (`--rerun` ~20–40 min per subject)
 
 | claim | paper |
 |---|---|
-| coverage of the 90% intervals, out of fold | 93.3% ± 2.3; 94.1% ± 1.7 |
-| mean absolute error | 0.007; 0.003 |
-| Monte-Carlo error of the labels below model error | 6.5× |
-| split-half reliability of the labels | 0.98 |
+| coverage of the 90% intervals, out of fold | 92.7% ± 1.9; 93.3% ± 2.2 (abstract and RQ1 answer: 93%) |
+| mean absolute error | 0.006; 0.003 |
+| Monte-Carlo error of the labels below model error | 6.0× (openpilot) |
+| split-half reliability of the labels | 0.98 (openpilot; TransFuser 0.96) |
 | axiomatic battery | 219 cases, 0 violations (`analysis/axioms.py`) |
 
 Output: `results/rq1/calibration.json`.
@@ -97,7 +98,7 @@ Stored: `results/rq1/<subject>_{corpus_ablation,label_sharing,target_ablation}.n
 | Ĥ (M=3), 4× | .819 / .764; .900 / .733 |
 | H (M=100), 101× | .859 / .840; .902 / .742 |
 
-Counts: 599 / 600 held-out executions; 23 / 31 scenarios crash again while
+Counts: 600 held-out executions per subject; 23 / 31 scenarios crash again while
 run 0 called 13 / 21; 137 / 129 passing run-0 scenarios of which 12 / 11
 crash again, holding 48% / 12% of held-out harm. Paired on the pass
 subset: field tier − TTC +0.372 [0.135, 0.598] / +0.171 [0.038, 0.332];
@@ -106,9 +107,9 @@ gap over the verdict +0.200 [0.094, 0.310] / +0.126 [0.043, 0.213], over
 TTC on openpilot +0.188 [0.044, 0.344]. Severity among scenarios that
 crash again, TransFuser (n = 31): field tier 0.87 [0.74, 0.93], impact
 speed 0.81, three replays 0.82, M = 100 0.82, verdict 0.57 with 94% ties;
-openpilot (n = 23) every interval crosses zero. The one openpilot run the
-paper's count omits (599 vs 600) is documented in `data/README.md`; the
-script reports both. Output: `results/rq2/table2.json`.
+openpilot (n = 23) every interval crosses zero. Output: `results/rq2/table2.json`
+(`--exclude-reexecuted` reproduces the 599-run subset of an earlier draft,
+see `data/README.md`; every number is identical).
 
 ## RQ3, Table 3 and Sec. 5.4 — `python analysis/rq3_kernel_rescaling.py` (`--retrain` ~35 min per subject)
 
@@ -131,9 +132,11 @@ Stored: `results/rq3/<subject>_kernel_oracle_scores.npz`. Output: `results/rq3/t
 | fourteen published curves move mean harm by a factor of | 25 (openpilot) to 220 (TransFuser) |
 | training ordering stays at r_s ≥ … with the shipped curve | 0.998; 0.922 |
 | comparable pairs that reorder | 1.3%; 9.4% (the fourth-power rule alone) |
-| field tier's lead over the best telemetry scalar across all fourteen | +0.099 to +0.111 |
+| field tier's r_s lead over the best telemetry scalar across all fourteen | +0.23 (openpilot); +0.08 to +0.09 (TransFuser) |
 
-Output: `results/rq3/injury_curves.json`, `results/rq3/injury_sweep_<subject>.json`.
+Output: `results/rq3/injury_curves.json` (`--sweep`, not reported in the paper:
+re-distilling the tier under each curve at a reduced protocol,
+`results/rq3/injury_sweep_<subject>.json`).
 
 ## RQ4, Sec. 5.5 and Fig. 3 — `python analysis/rq4_portability.py` (~10 min)
 
@@ -173,56 +176,24 @@ Every script above was run while assembling this package (scikit-learn
 1.8, numpy 1.26). What reproduces and what does not:
 
 - **Reproduces to the printed precision**: all of Sec. 5.1 and the worked
-  examples; every row and interval of Table 1 except one (below); the
-  paired margins, ties on openpilot, escalation rows and per-template
-  correlations of RQ1; MAE, split-half reliability; every ablation of
-  Sec. 5.2 and the tie-threshold ablation of Sec. 7; all of Table 2 and
-  the RQ2 prose; Table 3 and the RQ3 prose; the injury-curve re-scoring
-  (span, r_s, reordered pairs); every RQ4 number including the 2.2× width
-  (foreign interval width over the TransFuser oracle's native out-of-fold
-  width, 0.056 / 0.025); the CriMe ranking (0.646 / 0.666, non-collision
-  0.484 / 0.527); the regulatory fractions; the axiom battery (219 / 0).
-  Retraining the field tier reproduces the stored out-of-fold scores to
-  floating-point precision on both subjects (all ten repeats, maximum
-  difference 4e-16; `results/rq1/<subject>_field_tier_oof_rerun.npz`);
+  examples; every row and interval of Table 1; the paired margins, ties,
+  escalation rows and per-template correlations of RQ1; coverage, MAE,
+  split-half reliability; every ablation of Sec. 5.2 and the
+  tie-threshold ablation of Sec. 7; all of Table 2 and the RQ2 prose;
+  Table 3 and the RQ3 prose; the injury-curve re-scoring (span, r_s,
+  reordered pairs, r_s lead over the telemetry scalars); every RQ4 number
+  including the 2.2× width (foreign interval width over the TransFuser
+  oracle's native out-of-fold width, 0.056 / 0.025); the CriMe ranking
+  (0.646 / 0.666, non-collision 0.484 / 0.527); the regulatory fractions;
+  the axiom battery (219 / 0). Retraining the field tier reproduces the
+  stored out-of-fold scores to floating-point precision on both subjects
+  (all ten repeats, maximum difference 4e-16;
+  `results/rq1/<subject>_field_tier_oof_rerun.npz`); retraining the
+  conformal magnitude readout reproduces the stored per-repeat coverage,
+  width and MAE exactly (`results/rq1/<subject>_calibration_rerun.npz`);
   rebuilding `data/` from the raw traces reproduces every derived file
   to 1 ulp.
 - **Small deviations, documented rather than tuned**:
-  - Table 1, "Best of 35 CriMe measures", TransFuser APFD_H: the paper
-    prints .884 [.84, .92]; recomputing from the shipped measure values
-    gives .908 [.870, .927] for the same measure (WTTC at the criticality
-    instant, whose r_s .666 matches the paper). No measure or folding
-    yields .884; the paper's value appears to come from an earlier run of
-    the criticality sweep.
-  - Sec. 5.2, TransFuser r_s excluding the oncoming template: the paper's
-    0.71 ± 0.03 is the value of the earlier rank-fusion composite
-    (`results/rq1/transfuser_calibration.npz`); the shipped structured
-    field tier gives 0.73 ± 0.03. The script prints both.
-  - Sec. 5.2, ties on TransFuser: the paper attributes "2% of
-    10×-differing pairs receiving identical verdicts" to the binary
-    verdict; 2% is the field tier's tie rate on TransFuser. The verdict
-    itself ties 67% of those pairs (the TTC flag 59%). The script prints
-    both with a note.
-  - Coverage on openpilot: the stored per-repeat values give 93.0 ± 2.1
-    against the paper's 93.3 ± 2.3; the MAE-to-Monte-Carlo-error ratio is
-    6.3× against 6.5× (0.007 / 0.0011 rounded). TransFuser split-half
-    reliability is 0.96; the paper's single 0.98 is openpilot's.
-  - RQ2 counts: the paper's 599 held-out openpilot executions omit one
-    re-executed run (`data/README.md`); the script reports the paper's
-    subset by default and the full 600 with `--all-runs`.
-  - Sec. 5.4, "the field tier's lead over the best telemetry scalar stays
-    between +0.099 and +0.111 across all fourteen curves": this sentence
-    was computed with the previous estimator generation. With the shipped
-    field tier the lead over minimum clearance on openpilot is +0.044 on
-    the shipped curve by Table 1's own numbers, and the re-distillation
-    sweep (`rq3_injury_curves.py --sweep`, reduced to 3 repeats and 3
-    seeds) gives leads over the best telemetry scalar between −0.049 and
-    +0.033 on openpilot and between +0.025 and +0.033 on TransFuser across
-    the fifteen curves (shipped + fourteen), while its lead over the
-    binary verdict stays near +0.14 on openpilot. The per-curve
-    values are in `results/rq3/injury_sweep_<subject>.json`; the ordinal
-    conclusion (r_s ≥ 0.998 / 0.922 with the shipped curve, few pairs
-    reorder) stands, the margin sentence does not.
   - Table 3, TransFuser median harm at α = 1: the paper prints .0005, the
     stored label file gives .00044. The openpilot oracle-level minimum is
     0.705, printed as 0.71.
