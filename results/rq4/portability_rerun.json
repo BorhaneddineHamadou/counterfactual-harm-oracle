@@ -64,7 +64,9 @@
       "s10": 0.7371684814961197
     },
     "native_qhat_of_destination": 0.028096253727691825,
-    "foreign_over_native_width": 1.180182184369593
+    "foreign_over_native_width": 1.180182184369593,
+    "source_native_oof_width90": 0.043176446404621094,
+    "foreign_width_over_source_native": 1.5359623525386168
   },
   "transfuser->openpilot": {
     "rho": 0.2631589210856901,
@@ -131,6 +133,8 @@
       "s10": 0.5744110436998527
     },
     "native_qhat_of_destination": 0.03315869809694966,
-    "foreign_over_native_width": 0.8473268053390933
+    "foreign_over_native_width": 0.8473268053390933,
+    "source_native_oof_width90": 0.022647835319991372,
+    "foreign_width_over_source_native": 2.4811425313474533
   }
 }

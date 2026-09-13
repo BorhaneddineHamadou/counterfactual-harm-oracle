@@ -146,7 +146,7 @@ re-distilling the tier under each curve at a reduced protocol,
 | claim | paper |
 |---|---|
 | zero-shot r_s, openpilot oracle on TransFuser / reverse (local ceilings) | 0.31 (0.79); 0.26 (0.73) |
-| zero-shot coverage at a claimed 90% | 78%; 91% (the TransFuser oracle's foreign interval is 2.2× its native out-of-fold width) |
+| zero-shot coverage at a claimed 90% | 78%; 91% (the TransFuser oracle's foreign interval is 2.5× its native out-of-fold width) |
 | member disagreement into the crash-rich world; foreign runs above the native escalation threshold | 16×; 81% |
 | re-anchoring with n = 25 local labels | 96.8% ± 4.5; 97.5% ± 2.8 |
 | M = 30 labels leave every point unchanged to three decimals; n = 25 × M = 30 = 750 replays = 5% of a campaign | as stated |
@@ -184,8 +184,8 @@ Every script above was run while assembling this package (scikit-learn
   tie-threshold ablation of Sec. 7; all of Table 2 and the RQ2 prose;
   Table 3 and the RQ3 prose; the injury-curve re-scoring (span, r_s,
   reordered pairs, r_s lead over the telemetry scalars); every RQ4 number
-  including the 2.2× width (foreign interval width over the TransFuser
-  oracle's native out-of-fold width, 0.056 / 0.025); the CriMe ranking
+  including the 2.5× width (foreign interval width over the TransFuser
+  oracle's native out-of-fold width, 0.0562 / 0.0226); the CriMe ranking
   (0.646 / 0.666, non-collision 0.484 / 0.527); the regulatory fractions;
   the axiom battery (219 / 0). Retraining the field tier reproduces the
   stored out-of-fold scores to floating-point precision on both subjects

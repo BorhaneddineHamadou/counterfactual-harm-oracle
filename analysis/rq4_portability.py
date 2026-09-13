@@ -177,7 +177,7 @@ def main():
     print(f"saved {a.out}\nsaved {fp}")
     print("paper: zero-shot r_s 0.31 / 0.26 (ceilings 0.79 / 0.73); cov 78% / 91%; "
           "disagreement x16, 81% escalated; n=25: 96.8±4.5 / 97.5±2.8")
-    # "intervals 2.2x over-wide" (Fig. 3 caption): the width the TransFuser
+    # "intervals 2.5x over-wide" (Fig. 3 caption): the width the TransFuser
     # oracle carries into the foreign world (2 qhat from its 75/25 split)
     # against the width of its own out-of-fold conformal intervals at home
     # (results/rq1/<source>_calibration.npz, analysis/rq1_calibration.py).
@@ -193,7 +193,7 @@ def main():
         print(f"  {src_n}->{dst_n}: foreign 90% width {r['zero_shot_width90']:.4f} = "
               f"{r['foreign_width_over_source_native']:.2f}x the source oracle's native "
               f"out-of-fold width {w_home:.4f}"
-              + ("   [paper: 2.2x over-wide]" if src_n == "transfuser" else ""))
+              + ("   [paper: 2.5x over-wide]" if src_n == "transfuser" else ""))
     json.dump(out, open(a.out, "w"), indent=2)
 
 if __name__ == "__main__":
